@@ -312,10 +312,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b095164e338844fca66de3703ae6ce6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7481066221595718099}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b095164e338844fca66de3703ae6ce6,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 811540175434470303}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b095164e338844fca66de3703ae6ce6,
         type: 3}
@@ -345,28 +341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  laserPrefab: {fileID: 0}
   moveSpeed: 30
-  smoothTime: 1
-  minDist: 1
+  maxVelocity: 3
   maxTurnSpeed: 30
---- !u!114 &7481066221595718099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7015011385421253097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07240161c5bef4f71982495a410db816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireSpeed: 100
-  shooters:
-  - {fileID: 4407411507454157023}
-  - {fileID: 8278496369333297595}
-  laserPrefab: {fileID: 2371309718506305463, guid: 1c616c6fee0004d15a31177f4c2841c8,
-    type: 3}
+  fireSpeed: 0
+  shooters: []
   fireRate: 0
 --- !u!54 &811540175434470303
 Rigidbody:

@@ -76,10 +76,140 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
         type: 3}
       propertyPath: m_Name
-      value: Starship
+      value: Boss_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1042546363730124831}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76682098664342163}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8600705776492245289}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7136736936472738785}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1477383143777127415}
   m_SourcePrefab: {fileID: 100100000, guid: 23abaf0555b9943dc897954bef1c60fc, type: 3}
+--- !u!1 &8576646086613724308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8919159148287349189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1042546363730124831
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576646086613724308}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &76682098664342163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576646086613724308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.9683323, y: 0.41255558, z: 6.707043}
+  m_Center: {x: 0, y: 0.06346488, z: 0}
+--- !u!95 &8600705776492245289
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576646086613724308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a241eea6cfc043c7a813aa9cae3d0ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7136736936472738785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576646086613724308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b4ec9146d846fbbda705f2dd2f197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  rotationSpeed: 1
+--- !u!114 &1477383143777127415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576646086613724308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44498fb90acba40338e36d0da6ff9ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  health: 0
+  defense: 0
+  speed: 0
+  laserPrefab: {fileID: 2371309718506305463, guid: 1c616c6fee0004d15a31177f4c2841c8,
+    type: 3}
+  shootOrigins:
+  - {fileID: 0}

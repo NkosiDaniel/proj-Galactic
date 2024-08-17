@@ -24,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 
    private Boolean isShooting = false;
 
+   private Vector3 currentVelocity;
+
    private void Awake() 
    {
         rigidbody = GetComponent<Rigidbody>();
@@ -67,8 +69,11 @@ public class EnemyMovement : MonoBehaviour
         distanceFrom = distance.magnitude;
         distance /= distanceFrom;
 
-        if(distanceFrom < 50)
+        if(distanceFrom < 50) 
+        {
             enemyController.Attack();
+            transform.position = Vector3.SmoothDamp(enemy.position, player.position, ref currentVelocity , 1f, 5f);
+        }
         else
             isShooting = false;
     }

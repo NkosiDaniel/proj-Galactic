@@ -7,60 +7,30 @@ using System;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] Image[] hearts;
-    public static event Action OnPlayerDeath;
-    int HP;
+    [SerializeField] List<GameObject> healthBar = new List<GameObject>();
+    public GameObject healthChunk;
+    private List<GameObject> healthBarCopy;
+    private int currentCount = 1;
+    private int maxCount = 5;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        HP = 3;
-        SetHP(HP);
+        healthBarCopy = healthBar;
+        Push();
     }
 
-    public void SetHP(int hp)
+    public void Push()
     {
-        var sequence = DOTween.Sequence();
-        //3 Hearts
-        if (hp == 3)
+        if (currentCount < maxCount)
         {
-            foreach (Image h in hearts)
-            {
-                sequence.Append(h.DOColor(Color.white, 0.1f));
-            }
+            Vector3 newPos = new Vector3(healthBarCopy[currentCount].transform.position.x + 30, 0, 0);
+            Instantiate(healthChunk, newPos, Quaternion.identity);
         }
-        //2 Hearts
-        if (hp == 2)
-            sequence.Append(hearts[0].DOColor(Color.black, 0.1f));
-        //1 Heart
-        if (hp == 1)
-        {
-            sequence.Append(hearts[0].DOColor(Color.black, 0.1f));
-            sequence.Append(hearts[1].DOColor(Color.black, 0.1f));  
-        }
-        //No Hearts
-        if (hp == 0 || hp < 0)
-        {
-            foreach (Image h in hearts)
-            {
-                sequence.Append(h.DOColor(Color.black, 0.1f));
-            }
+    }
 
-            Destroy(gameObject);
-            FindAnyObjectByType<AudioManager>().PlaySound("DestroyShip");
-            
-        }
+    public void Pop()
+    {
 
     }
 
-    public void TakeDamage()
-    {
-        HP -= 1;
-
-        if(HP == 0 || HP < 0) 
-        {
-           OnPlayerDeath?.Invoke();
-        }
-        SetHP(HP);
-    }
 }

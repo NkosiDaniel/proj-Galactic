@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
    #region MOVEMENT API
     private void BoostForward(float amount) 
     {
-        Vector3 force = transform.forward * amount * moveSpeed;
-        rb.AddRelativeForce(0, 0, amount * -moveSpeed, ForceMode.VelocityChange);
+        Vector3 force = transform.forward * amount * -moveSpeed;
+        transform.position += force * Time.deltaTime;
     }
     /// <summary>
     /// Limits the speed of the Rigidbody's X and Y speeds.

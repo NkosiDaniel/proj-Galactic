@@ -8,7 +8,6 @@ public class SpaceshipBase : MonoBehaviour
     [SerializeField] string name;
     [TextArea]
     [SerializeField] string description;
-
     [SerializeField] int health;
     [SerializeField] int defense;
     [SerializeField] int speed;

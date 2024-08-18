@@ -8,29 +8,30 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] List<GameObject> healthBar = new List<GameObject>();
-    public GameObject healthChunk;
-    private List<GameObject> healthBarCopy;
-    private int currentCount = 1;
-    private int maxCount = 5;
+    private int count;
+    private int maxCount;
 
     private void Start()
     {
-        healthBarCopy = healthBar;
-        Push();
+        maxCount = healthBar.Count;
+        count = healthBar.Count;
     }
 
     public void Push()
     {
-        if (currentCount < maxCount)
+        if (count < maxCount)
         {
-            Vector3 newPos = new Vector3(healthBarCopy[currentCount].transform.position.x + 30, 0, 0);
-            Instantiate(healthChunk, newPos, Quaternion.identity);
+            healthBar[count].SetActive(true);
+            count++;
         }
     }
 
-    public void Pop()
+    public void Pull()
     {
-
+        if(count > 0) 
+        {
+            healthBar[count-1].SetActive(false);
+            count--;
+        }
     }
-
 }

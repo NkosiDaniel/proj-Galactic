@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Lasers
   - region
+  - EnemyLasers
   layers:
   - Default
   - TransparentFX

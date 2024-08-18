@@ -29,12 +29,16 @@ public class PlayerShield : MonoBehaviour
 
     void Update()
     {
-      /* shieldCooldown -= Time.time;
-        if (shieldCooldown < 0)
+
+        if (count < maxCount)
         {
-            Push();
-            shieldCooldown = 2;
-        }*/
+            shieldCooldown -= Time.deltaTime;
+            if (shieldCooldown < 0)
+            {
+                Push();
+                shieldCooldown = 2;
+            }
+        }
     }
 
 

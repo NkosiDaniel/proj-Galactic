@@ -18,7 +18,7 @@ public class Enemy : SpaceshipBase
     private Transform player;
     private Transform enemy;
     private float nextFire;
-    private float fireRate = 2f;
+    private float fireRate = 1f;
     [SerializeField] List<GameObject> shootOrigins;
     private void Start() 
     {

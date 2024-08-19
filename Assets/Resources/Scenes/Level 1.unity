@@ -8142,11 +8142,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 672143759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e7d0526f30f48d7ab65d3be5c94c30, type: 3}
+  m_Script: {fileID: 11500000, guid: 54a27e2dd78cf4da8bff5ca2e1f4d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1065420362}
   setTime: 120
+  statusScreen: {fileID: 1114705397}
+  timeScale: 1
 --- !u!1 &682577124
 GameObject:
   m_ObjectHideFlags: 0
@@ -9653,7 +9655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1114705398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10351,7 +10353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 297, y: 4}
+  m_AnchoredPosition: {x: 297, y: -28}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290822089
@@ -10486,7 +10488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259, y: 4}
+  m_AnchoredPosition: {x: -259, y: -28.000004}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309054383
@@ -12779,7 +12781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14, y: 4}
+  m_AnchoredPosition: {x: -14, y: 47}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933669525

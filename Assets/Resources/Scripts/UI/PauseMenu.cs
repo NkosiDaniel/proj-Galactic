@@ -5,11 +5,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using COMMAND;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     private bool isActive = false;
+    private OpenCommand pauseCommand;
+
+    void Start()
+    {
+        pauseCommand = new OpenCommand(pauseMenu, isActive);
+    }
 
     void Update()
     {
@@ -19,13 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.M))
         {
-            isActive = !isActive;
-            if (isActive == true)
-                Time.timeScale = 0;
-            else
-                Time.timeScale = 1;
-            pauseMenu.SetActive(isActive);
-
+            pauseCommand.Execute();
         }
     }
 

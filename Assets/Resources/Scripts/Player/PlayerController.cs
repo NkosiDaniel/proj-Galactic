@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using COMMAND;
 
 
 public class PlayerController : MonoBehaviour
@@ -28,9 +29,13 @@ public class PlayerController : MonoBehaviour
     private float moveY;
     private float nextFire;
 
+    //Commands
+    private ShootCommand shootCommand;
+
     #region MONOBEHAVIOUR API
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        shootCommand = new ShootCommand(fireSpeed, fireRate, laserPrefab, shooters, nextFire);
     }
 
     private void Update() {
@@ -66,13 +71,6 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Limits the speed of the Rigidbody's X and Y speeds.
     /// </summary>
-    private void ClampMovement() 
-    {
-        float x = Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity);
-        float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
-
-        rb.velocity = new Vector3(x, transform.position.y, y);
-    }
     /// <summary>
     /// Uses the Rotate method from MonoBehaviour to rotate a transform by its Y transform.
     /// </summary>
@@ -93,18 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space)) 
         {
-            if(Time.time > nextFire) 
-            {
-                foreach(GameObject s in shooters) 
-                {
-                    nextFire = Time.time + fireRate;
-                    GameObject laser = Instantiate(laserPrefab, s.transform.position, s.transform.rotation);
-                    laser.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0, 0, -fireSpeed));
-                    FindObjectOfType<AudioManager>().PlaySound("LaserShoot");
-                    Destroy(laser, 2);
-
-                }
-            }
+            shootCommand.Execute();
         }
     }
 

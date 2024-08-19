@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
 
     //Commands
-    private ShootCommand shootCommand;
+    private Command shootCommand;
 
     #region MONOBEHAVIOUR API
     private void Start() {

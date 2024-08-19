@@ -55,7 +55,7 @@ namespace COMMAND
         private GameObject menu;
         private bool isActive;
 
-        public OpenCommand(GameObject menu, bool isActive) 
+        public OpenCommand(GameObject menu, bool isActive = false) 
         {
             this.menu = menu;
             this.isActive = isActive;

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace COMMAND
 {
@@ -54,11 +56,15 @@ namespace COMMAND
     {
         private GameObject menu;
         private bool isActive;
+        private TMP_Text menuText;
+        private string toSay;
 
-        public OpenCommand(GameObject menu, bool isActive = false) 
+        public OpenCommand(GameObject menu, bool isActive = false, TMP_Text menuText = null, string toSay = null) 
         {
             this.menu = menu;
             this.isActive = isActive;
+            this.menuText = menuText;
+            this.toSay = toSay;
         }
 
         public override void Execute()
@@ -69,6 +75,11 @@ namespace COMMAND
             else
                 Time.timeScale = 1;
             menu.SetActive(isActive);
+
+            if(menuText != null) 
+            {
+                menuText.text = toSay;
+            }
         }
     }
     #endregion

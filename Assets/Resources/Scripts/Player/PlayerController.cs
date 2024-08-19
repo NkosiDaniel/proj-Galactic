@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 using COMMAND;
 
 
@@ -31,8 +32,31 @@ public class PlayerController : MonoBehaviour
 
     //Commands
     private Command shootCommand;
+    //PlayerInput
+    PlayerControls controls;
+    //Menus
+    PauseMenu pauseMenu;
+
+    #region INPUT PACKAGE API
+    void Awake() 
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.Shoot.performed += ctx => shootCommand.Execute();
+    }
+
+    void OnEnable() 
+    {
+        controls.Gameplay.Enable();
+    }
+
+    void OnDisable() 
+    {
+        controls.Gameplay.Disable();
+    }
+    #endregion 
 
     #region MONOBEHAVIOUR API
+
     private void Start() {
         rb = GetComponent<Rigidbody>();
         shootCommand = new ShootCommand(fireSpeed, fireRate, laserPrefab, shooters, nextFire);
@@ -89,7 +113,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnShoot() 
     {
-        if(Input.GetKey(KeyCode.Space)) 
+        if(Input.GetButtonDown("Fire1")) 
         {
             shootCommand.Execute();
         }

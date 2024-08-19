@@ -36,31 +36,14 @@ public class EnemyMovement : MonoBehaviour
         enemyController = GetComponent<Enemy>();
    }
 
-   private void FixedUpdate() 
+   private void Update() 
    {
         UpdateTargetDirection();
-        RotateTowardsTarget();
-        SetVelocity();
    }
 
     private void UpdateTargetDirection() 
     {
-        HandleRandomDirectionChange();
         HandlePlayerTargeting();
-    }
-
-    private void HandleRandomDirectionChange()
-    {
-        changeDirectionCooldown -= Time.deltaTime;
-
-        if(changeDirectionCooldown <= 0) 
-        {
-            float angleChange = Random.Range(-90f, 90f);
-            Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
-            targetDirection = rotation * targetDirection;
-
-            changeDirectionCooldown = Random.Range(1f, 5f);
-        }
     }
 
     private void HandlePlayerTargeting()
@@ -80,18 +63,5 @@ public class EnemyMovement : MonoBehaviour
         }
         else
             isShooting = false;
-    }
-
-    private void RotateTowardsTarget() 
-    {
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, targetDirection);
-        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        rigidbody.MoveRotation(rotation);
-    }
-
-    private void SetVelocity() 
-    {
-        rigidbody.velocity = transform.up * speed;
     }
 }

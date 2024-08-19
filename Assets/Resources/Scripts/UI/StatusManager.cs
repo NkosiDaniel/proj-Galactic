@@ -5,16 +5,34 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
+    [Header("Timer Info")]
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private float setTime;
-
-    [SerializeField] private GameObject statusScreen;
     public float timeScale = 1f;
+
+    [Header("Game UI")]
+    [SerializeField] private GameObject statusScreen;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject theStars;
+    
+    [Header("Instantiate Info")]
+    [SerializeField] private List<GameObject> spawnPoints;
+
+
+    private float instantiateTimer = 5f;
+
 
     private void Update()
     {
-        if (setTime >= 0)
-            setTime -= Time.deltaTime * timeScale;
+        setTime -= Time.deltaTime * timeScale;
+        instantiateTimer -= Time.deltaTime;
+
+        if (instantiateTimer <= 0) {
+            //SpawnEnemy();
+            instantiateTimer = 5;
+        }
+
 
         UpdateTimer();
 
@@ -40,5 +58,11 @@ public class StatusManager : MonoBehaviour
             statusScreen.SetActive(true);
         }
     }
+
+    /*private void SpawnEnemy()
+    {
+       Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
+       Instantiate(theStars, randomSpawn.position, Quaternion.identity);
+    }*/
 
 }

@@ -13,22 +13,35 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     private Command pauseCommand;
     private Command optionCommand;
+    private PlayerControls playerControls;
 
+    void Awake() 
+    {
+        playerControls = new PlayerControls();
+        playerControls.Gameplay.Menu.performed += ctx => ShowPauseMenu();
+    }
+
+    void OnEnable() 
+    {
+        playerControls.Gameplay.Enable();
+    }
+
+    void OnDisable() 
+    {
+        playerControls.Gameplay.Disable();
+    }
     void Start()
     {
         pauseCommand = new OpenCommand(pauseMenu);
     }
 
-    void Update()
+    public Command PauseCommand
     {
-        ShowPauseMenu();
+        get { return pauseCommand; }
     }
     public void ShowPauseMenu()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.M))
-        {
-            pauseCommand.Execute();
-        }
+        pauseCommand.Execute();
     }
 
     public void ResumeButton() 
@@ -38,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OptionsButton() 
     {
-        
+
     }
 
     public void ResetButton() 

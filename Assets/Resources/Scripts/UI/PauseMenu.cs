@@ -34,11 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseCommand = new OpenCommand(pauseMenu);
     }
-
-    public Command PauseCommand
-    {
-        get { return pauseCommand; }
-    }
+    
     public void ShowPauseMenu()
     {
         pauseCommand.Execute();

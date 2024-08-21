@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     private int count;
     private int maxCount;
 
+    public static event Action PlayerDied;
+
     private void Start()
     {
         maxCount = healthBar.Count;
@@ -32,6 +34,11 @@ public class PlayerHealth : MonoBehaviour
         {
             healthBar[count-1].SetActive(false);
             count--;
+        }
+
+        if(count <= 0) 
+        {
+            PlayerDied.Invoke();
         }
     }
 }

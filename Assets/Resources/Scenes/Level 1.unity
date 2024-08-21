@@ -1529,7 +1529,7 @@ Camera:
   far clip plane: 1000
   field of view: 52
   orthographic: 1
-  orthographic size: 42.5
+  orthographic size: 45
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8950,17 +8950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dee41dff5004f0d88b7ac6f220ec4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTracker: {fileID: 0}
-  target: {fileID: 1063199049}
-  speed: 2
-  radius: 1
-  angle: 0
-  distance: {x: 0, y: 0, z: 0}
-  distanceFrom: 0
-  maxDistanceFrom: 0
-  layerMask:
-    m_Bits: 0
-  targetCollider: {fileID: 0}
 --- !u!1 &1065420361
 GameObject:
   m_ObjectHideFlags: 0

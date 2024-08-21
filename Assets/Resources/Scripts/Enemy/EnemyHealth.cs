@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     private int maxCount;
 
     [SerializeField] private Image healthbarSprite;
+    [SerializeField] private GameObject explosionPrefab;
 
     private Camera cam;
     private void Start()
@@ -45,6 +46,8 @@ public class EnemyHealth : MonoBehaviour
             Pull();
             if (count <= 0)
             {
+                GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
                 Destroy(gameObject);
             }
         }

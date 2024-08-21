@@ -1119,6 +1119,8 @@ MonoBehaviour:
   - {fileID: 2828106905548274495}
   - {fileID: 2476695933431424116}
   healthbarSprite: {fileID: 1810431802921440653}
+  explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
+    type: 3}
 --- !u!4 &8956971914961270318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23abaf0555b9943dc897954bef1c60fc,

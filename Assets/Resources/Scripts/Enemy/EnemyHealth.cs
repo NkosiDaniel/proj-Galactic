@@ -37,6 +37,13 @@ public class EnemyHealth : MonoBehaviour
             healthBar[count - 1].SetActive(false);
             count--;
         }
+
+        if (count <= 0)
+            {
+                GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
+                Destroy(gameObject);
+            }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -44,12 +51,6 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Lasers"))
         {
             Pull();
-            if (count <= 0)
-            {
-                GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
-                Destroy(explosion, 1f);
-                Destroy(gameObject);
-            }
         }
     }
 }

@@ -8,6 +8,8 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] List<GameObject> healthBar = new List<GameObject>();
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] GameObject player;
     private int count;
     private int maxCount;
 
@@ -15,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        PlayerDied += Explode;
+
         maxCount = healthBar.Count;
         count = healthBar.Count;
     }
@@ -30,15 +34,29 @@ public class PlayerHealth : MonoBehaviour
 
     public void Pull()
     {
-        if(count > 0) 
+        if (count > 0)
         {
-            healthBar[count-1].SetActive(false);
+            healthBar[count - 1].SetActive(false);
             count--;
         }
 
-        if(count <= 0) 
+        if (count <= 0)
         {
             PlayerDied.Invoke();
         }
     }
+
+    public void Explode()
+    {
+        if (count <= 0)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, player.transform.position, Quaternion.identity);
+            Destroy(explosion, 1f);
+            player.GetComponent<MeshRenderer>().enabled = false;
+            Debug.Log("Has run!");
+        }
+    }
+
+
+
 }

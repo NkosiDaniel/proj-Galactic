@@ -29,7 +29,7 @@ public class StatusManager : MonoBehaviour
         instantiateTimer -= Time.deltaTime;
 
         if (instantiateTimer <= 0) {
-            //SpawnEnemy();
+            SpawnEnemy();
             instantiateTimer = 5;
         }
 
@@ -59,10 +59,10 @@ public class StatusManager : MonoBehaviour
         }
     }
 
-    /*private void SpawnEnemy()
+    private void SpawnEnemy()
     {
        Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
        Instantiate(theStars, randomSpawn.position, Quaternion.identity);
-    }*/
+    }
 
 }

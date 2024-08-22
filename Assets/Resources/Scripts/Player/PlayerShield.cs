@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerShield : MonoBehaviour
 {
     [SerializeField] List<GameObject> shieldBar = new List<GameObject>();
-    private float shieldCooldown = 2;
     private int count;
     private int maxCount;
 
@@ -19,26 +18,15 @@ public class PlayerShield : MonoBehaviour
     #region MONOBEHAVIOUR API
     void Start()
     {
+        EnemyHealth.EnemyDeath += Push;
+
         maxCount = shieldBar.Count;
         count = shieldBar.Count;
 
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
         playerHealth = FindAnyObjectByType<PlayerHealth>();
-    }
-
-    void Update()
-    {
-
-        if (count < maxCount)
-        {
-            shieldCooldown -= Time.deltaTime;
-            if (shieldCooldown < 0)
-            {
-                Push();
-                shieldCooldown = 2;
-            }
-        }
+        
     }
 
 

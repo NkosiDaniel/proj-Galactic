@@ -23,7 +23,7 @@ public class StatusManager : MonoBehaviour
 
     [Header("Instantiate Info")]
     [SerializeField] private List<GameObject> spawnPoints;
-    private float instantiateTimer = 5f;
+    private float instantiateTimer = 10f;
 
     //Commands
 

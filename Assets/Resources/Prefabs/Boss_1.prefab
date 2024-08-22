@@ -1097,7 +1097,7 @@ MonoBehaviour:
   health: 0
   defense: 0
   speed: 0
-  laserPrefab: {fileID: 2371309718506305463, guid: 1c616c6fee0004d15a31177f4c2841c8,
+  laserPrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
     type: 3}
   shootOrigins:
   - {fileID: 3421798006212062851}

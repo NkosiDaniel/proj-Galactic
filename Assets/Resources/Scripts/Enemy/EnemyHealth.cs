@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
     [SerializeField] private Image healthbarSprite;
     [SerializeField] private GameObject explosionPrefab;
+
+    public static event Action EnemyDeath;
 
     private Camera cam;
     private void Start()
@@ -43,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
                 GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
                 Destroy(explosion, 1f);
                 Destroy(gameObject);
+                EnemyDeath.Invoke();
             }
     }
 

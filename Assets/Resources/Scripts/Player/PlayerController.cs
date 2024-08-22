@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] List<GameObject> shooters;
     [SerializeField] float fireRate;
     
+    [Header("Dash Info")]
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashCoolDown;
+    private float dashCoolDownTimer;
+
     private Rigidbody rb;
     private float moveX;
     private float moveY;
@@ -42,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         controls = new PlayerControls();
         controls.Gameplay.Shoot.performed += ctx => shootCommand.Execute();
+        controls.Gameplay.Dash.performed += ctx => DashAbility();
     }
 
     void OnEnable() 
@@ -67,6 +75,9 @@ public class PlayerController : MonoBehaviour
         moveY = Input.GetAxis("Vertical");
         OnShoot();
         Rotate(transform, moveX * maxTurnSpeed);
+
+        dashTime -= Time.deltaTime;
+        dashCoolDownTimer -= Time.deltaTime;
         /*
         Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
          mousePosition += ((Vector3)transform.position - mousePosition).normalized * minDist; 
@@ -89,8 +100,24 @@ public class PlayerController : MonoBehaviour
    #region MOVEMENT API
     private void BoostForward(float amount) 
     {
+        if(dashTime > 0) 
+        {
+            Vector3 dashForce = transform.forward * dashSpeed * -moveSpeed;
+            transform.position += dashForce * Time.deltaTime;
+        }
+
         Vector3 force = transform.forward * amount * -moveSpeed;
         transform.position += force * Time.deltaTime;
+    }
+    
+
+    private void DashAbility() 
+    {
+        if(dashCoolDownTimer < 0) 
+        {
+            dashCoolDownTimer = dashCoolDown;
+            dashTime = dashDuration;
+        } 
     }
     /// <summary>
     /// Limits the speed of the Rigidbody's X and Y speeds.

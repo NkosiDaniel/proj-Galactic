@@ -14894,8 +14894,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
+      propertyPath: dashTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
+        type: 3}
       propertyPath: fireRate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
@@ -14905,7 +14915,7 @@ PrefabInstance:
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
       propertyPath: moveSpeed
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
@@ -14930,8 +14940,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
+      propertyPath: dashCoolDown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
+        type: 3}
+      propertyPath: dashDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
+        type: 3}
       propertyPath: maxTurnSpeed
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1731155295942056723, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}

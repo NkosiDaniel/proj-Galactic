@@ -70,8 +70,10 @@ public class StatusManager : MonoBehaviour
     #region EVENTS API
     private void SpawnEnemy()
     {
+        if(spawnPoints.Count > 0) {
         Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
         Instantiate(theStars, randomSpawn.position, Quaternion.identity);
+        }
     }
     #endregion
 

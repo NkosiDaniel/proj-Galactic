@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceshipBase : MonoBehaviour
 {
     //Stats for each ship type
-    [SerializeField] string name;
+    [SerializeField] string spaceShipName;
     [TextArea]
     [SerializeField] string description;
     [SerializeField] int health;

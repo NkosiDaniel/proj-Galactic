@@ -13,17 +13,11 @@ public class PlayerController : MonoBehaviour
 {
     
     public Camera mainCamera;
-    public GameObject laserPrefab;
 
     [Header("Movement Variables")]
     [SerializeField] float moveSpeed = 1;
     [SerializeField]float maxVelocity = 3;
     [SerializeField]float maxTurnSpeed = 0.01f;
-
-    [Header("Shooter Variables")]
-    [SerializeField] float fireSpeed;
-    [SerializeField] List<GameObject> shooters;
-    [SerializeField] float fireRate;
     
     [Header("Dash Info")]
     [SerializeField] private float dashSpeed;
@@ -35,10 +29,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float moveX;
     private float moveY;
-    private float nextFire;
 
-    //Commands
-    private Command shootCommand;
     //PlayerInput
     PlayerControls controls;
     //Menus
@@ -48,7 +39,6 @@ public class PlayerController : MonoBehaviour
     void Awake() 
     {
         controls = new PlayerControls();
-        controls.Gameplay.Shoot.performed += ctx => shootCommand.Execute();
         controls.Gameplay.Dash.performed += ctx => DashAbility();
     }
 
@@ -67,13 +57,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
-        shootCommand = new ShootCommand(fireSpeed, fireRate, laserPrefab, shooters, nextFire);
     }
 
     private void Update() {
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
-        OnShoot();
         Rotate(transform, moveX * maxTurnSpeed);
 
         dashTime -= Time.deltaTime;
@@ -138,13 +126,6 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Instantiates laser prefabs to be fired towards a target based on fire rate.
     /// </summary>
-    public void OnShoot() 
-    {
-        if(Input.GetButtonDown("Fire1")) 
-        {
-            shootCommand.Execute();
-        }
-    }
 
     public void UltimateAttack()
     {

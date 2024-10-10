@@ -31,9 +31,10 @@ public class EnemyMovement : MonoBehaviour
    {
         rigidbody = GetComponent<Rigidbody>();
         targetDirection = transform.up;
-        player = FindAnyObjectByType<PlayerController>().transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = this.transform;
         enemyController = GetComponent<Enemy>();
+        
    }
 
    private void Update() 

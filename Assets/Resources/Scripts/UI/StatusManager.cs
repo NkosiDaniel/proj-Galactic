@@ -9,7 +9,7 @@ public class StatusManager : MonoBehaviour
 {
     [Header("Timer Info")]
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private float setTime;
+    [SerializeField] private float setTime; 
     public float timeScale = 1f;
 
     [Header("Game UI")]

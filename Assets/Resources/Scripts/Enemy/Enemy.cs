@@ -23,7 +23,7 @@ public class Enemy : SpaceshipBase
     [SerializeField] List<GameObject> shootOrigins;
     private void Start() 
     {
-        player = FindAnyObjectByType<PlayerController>().transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = transform;
         phase = Phases.FirstAttack;
     }

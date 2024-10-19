@@ -942,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
         type: 3}
       propertyPath: m_Name
-      value: Boss_1
+      value: The Stars
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
         type: 3}
@@ -1097,6 +1097,7 @@ MonoBehaviour:
   - {fileID: 2476695933431424116}
   defense: 0
   speed: 0
+  phase: 0
   projectilePrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
     type: 3}
   shootOrigins:

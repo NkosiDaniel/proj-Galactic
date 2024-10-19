@@ -16,7 +16,7 @@ public enum Phases
 
 public class Enemy : SpaceshipBase
 {
-    Phases phase;
+    public Phases phase;
     public GameObject projectilePrefab;
     private Transform player;
     private Transform enemy;

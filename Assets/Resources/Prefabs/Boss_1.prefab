@@ -985,10 +985,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1477383143777127415}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23abaf0555b9943dc897954bef1c60fc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7771607766978444674}
   m_SourcePrefab: {fileID: 100100000, guid: 23abaf0555b9943dc897954bef1c60fc, type: 3}
 --- !u!1 &8576646086613724308 stripped
 GameObject:
@@ -1092,32 +1088,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44498fb90acba40338e36d0da6ff9ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  spaceShipName: The Stars
   description: 
-  health: 0
-  defense: 0
-  speed: 0
-  laserPrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
-    type: 3}
-  shootOrigins:
-  - {fileID: 3421798006212062851}
---- !u!114 &7771607766978444674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8576646086613724308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d1b93b8ee7045ee851c7391dd10d9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   healthBar:
   - {fileID: 1905018665870057465}
   - {fileID: 268249885016146451}
   - {fileID: 2828106905548274495}
   - {fileID: 2476695933431424116}
+  defense: 0
+  speed: 0
+  projectilePrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
+    type: 3}
+  shootOrigins:
+  - {fileID: 3421798006212062851}
   healthbarSprite: {fileID: 1810431802921440653}
   explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
     type: 3}

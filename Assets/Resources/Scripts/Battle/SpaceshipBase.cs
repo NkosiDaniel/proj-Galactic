@@ -8,15 +8,40 @@ public class SpaceshipBase : MonoBehaviour
     [SerializeField] string spaceShipName;
     [TextArea]
     [SerializeField] string description;
-    [SerializeField] int health;
+
+    [Header("Health Information")]
+    [SerializeField] List<GameObject> healthBar = new List<GameObject>();
+    private int count;
+    private int maxCount;
+
     [SerializeField] int defense;
     [SerializeField] int speed;
 
 
+    public void Push()
+    {
+        if (count < maxCount)
+        {
+            healthBar[count].SetActive(true);
+            count++;
+        }
+    }
+
+     public virtual void Pull()
+    {
+        if (count > 0)
+        {
+            healthBar[count - 1].SetActive(false);
+            count--;
+        }
+    }
+
     //Encapsulation; getter methods for each serialized field
     public string Name { get{return name;} }
     public string Description { get{return description;} }
-    public int Health { get{return health;} }
+    public List<GameObject> HealthBar {get{return healthBar;} }
+    public int CurrentHealth { get{return count;} set{count = value;}  }
+    public int MaxHealth {get{return maxCount;} set{maxCount = value;}}
     public int Defense { get{return defense;} }
     public int Speed { get{return speed;} }
     

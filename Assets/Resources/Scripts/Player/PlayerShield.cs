@@ -18,7 +18,7 @@ public class PlayerShield : MonoBehaviour
     #region MONOBEHAVIOUR API
     void Start()
     {
-        EnemyHealth.EnemyDeath += Push;
+        Enemy.EnemyDeath += Push;
 
         maxCount = shieldBar.Count;
         count = shieldBar.Count;

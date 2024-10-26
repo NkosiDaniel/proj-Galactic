@@ -5,7 +5,7 @@ using COMMAND;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Phases 
+public enum Phases
 {
     Introduction,
     Base,
@@ -18,12 +18,12 @@ public class Enemy : SpaceshipBase
 {
     public Phases phase;
     public GameObject projectilePrefab;
-    private Transform player;
-    private Transform enemy;
-    private float nextFire;
-    private float fireSpeed = 100f;
-    private float fireRate = 1f;
-    [SerializeField] List<GameObject> shootOrigins;
+    protected Transform player;
+    protected Transform enemy;
+    protected float nextFire;
+    [SerializeField] protected float fireSpeed = 100f;
+    [SerializeField] protected float fireRate = 1f;
+    [SerializeField] protected List<GameObject> shootOrigins;
     Command shootCommand;
 
     [Header("UI")]
@@ -33,7 +33,7 @@ public class Enemy : SpaceshipBase
     //ACTIONS
     public static event Action EnemyDeath;
 
-    private void Start() 
+    private void Start()
     {
         shootCommand = new ShootCommand(fireSpeed, fireRate, projectilePrefab, shootOrigins, nextFire);
 
@@ -45,10 +45,10 @@ public class Enemy : SpaceshipBase
         phase = Phases.Base;
     }
 
-    public void Attack() 
+    public virtual void Attack()
     {
-            enemy.LookAt(player);
-            shootCommand.Execute();
+        enemy.LookAt(player);
+        shootCommand.Execute();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -57,7 +57,7 @@ public class Enemy : SpaceshipBase
         {
             Pull();
 
-             if (CurrentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
                 Destroy(explosion, 1f);

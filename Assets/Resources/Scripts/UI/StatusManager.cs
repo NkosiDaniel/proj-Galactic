@@ -18,13 +18,14 @@ public class StatusManager : MonoBehaviour
     [SerializeField] private TMP_Text nextLvlTxt;
     [SerializeField] private TMP_Text returnTxt;
 
+    /*
     [Header("Prefabs")]
     [SerializeField] private GameObject theStars;
 
     [Header("Instantiate Info")]
     [SerializeField] private List<GameObject> spawnPoints;
     private float instantiateTimer = 10f;
-
+*/
     //Commands
 
     private void Start()
@@ -36,13 +37,13 @@ public class StatusManager : MonoBehaviour
     private void Update()
     {
         setTime -= Time.deltaTime * timeScale;
-        instantiateTimer -= Time.deltaTime;
+        /*instantiateTimer -= Time.deltaTime;
 
         if (instantiateTimer <= 0)
         {
             SpawnEnemy();
             instantiateTimer = 5;
-        }
+        } */
         UpdateTimer();
     }
 
@@ -68,13 +69,13 @@ public class StatusManager : MonoBehaviour
     #endregion
 
     #region EVENTS API
-    private void SpawnEnemy()
+    /*private void SpawnEnemy()
     {
         if(spawnPoints.Count > 0) {
         Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
         Instantiate(theStars, randomSpawn.position, Quaternion.identity);
         }
-    }
+    }*/
     #endregion
 
     #region UI MANAGER

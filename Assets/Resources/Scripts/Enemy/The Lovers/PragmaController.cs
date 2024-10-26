@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using COMMAND;
 
 public class PragmaController : Enemy
 {
@@ -8,13 +9,25 @@ public class PragmaController : Enemy
     private float activationTimer;
     private float activationTime = 8f;
     private float restTimer;
+    private Command shootCommand;
 
     
 
     private void Start()
     {
+        CurrentHealth = HealthBar.Count;
+        MaxHealth = HealthBar.Count;
+
         activationTimer = activationTime;
+
+        phase = Phases.Base;
+
         restTimer = 10f;
+
+        shootCommand = new ShootCommand(fireSpeed, fireRate, projectilePrefab, shootOrigins, nextFire);
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemy = transform;
     }
 
     private void Update()
@@ -27,39 +40,47 @@ public class PragmaController : Enemy
                 if (restTimer <= 0)
                 {
                     int randomNum = UnityEngine.Random.Range(0, 4);
-                    if (randomNum == 1)
+                    if (randomNum < 4)
                     {
                         activationTimer = activationTime;
                         phase = Phases.Elite;
+                        Debug.Log("IN ETHERIC MODE");
                     }
+                    restTimer = 10f;
                 }
                 break;
             //When Pragma is in Etheric Mode 
             case Phases.Elite: 
+                EthericMode();
                 activationTimer -= Time.deltaTime;
-
-                if (activationTimer <= 0)
-                {
-                    phase = Phases.Base;
-                }
+                
                 break;
         }
 
     }
 
+    public override void Attack() 
+    {
+        shootOrigins[0].transform.LookAt(player);
+        shootCommand.Execute();
+    }
+
+
 
     private void EthericMode()
     {
         //Will keep running until activation time is out
-        while (activationTimer >= 0)
+        if(activationTimer >= 0)
         {
             //FOR ALL ENEMY ABILITIES
             //FREEZE
             //BARRAGE ATTACKS
-
+            Attack();
 
             //INVINCIBILITY
             //REGENERATION
         }
+        else
+            phase = Phases.Base;
     }
 }

@@ -1,48 +1,71 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using COMMAND;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum Phases 
+public enum Phases
 {
     Introduction,
-    FirstAttack,
-    SecondAttack,
-    FinalAttack,
+    Base,
+    Elite,
+    Superior,
     End
 };
 
 public class Enemy : SpaceshipBase
 {
-    Phases phase;
-    public GameObject laserPrefab;
-    private Transform player;
-    private Transform enemy;
-    private float nextFire;
-    private float fireRate = 1f;
-    [SerializeField] List<GameObject> shootOrigins;
-    private void Start() 
+    public Phases phase;
+    public GameObject projectilePrefab;
+    protected Transform player;
+    protected Transform enemy;
+    protected float nextFire;
+    [SerializeField] protected float fireSpeed = 100f;
+    [SerializeField] protected float fireRate = 1f;
+    [SerializeField] protected List<GameObject> shootOrigins;
+    Command shootCommand;
+
+    [Header("UI")]
+    [SerializeField] private Image healthbarSprite;
+    [Header("VFX")]
+    [SerializeField] private GameObject explosionPrefab;
+    //ACTIONS
+    public static event Action EnemyDeath;
+
+    private void Start()
     {
+        shootCommand = new ShootCommand(fireSpeed, fireRate, projectilePrefab, shootOrigins, nextFire);
+
+        CurrentHealth = HealthBar.Count;
+        MaxHealth = HealthBar.Count;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = transform;
-        phase = Phases.FirstAttack;
+        phase = Phases.Base;
     }
 
-    public void Attack() 
+    public virtual void Attack()
     {
-            enemy.LookAt(player);
+        enemy.LookAt(player);
+        shootCommand.Execute();
+    }
 
-            if(Time.time > nextFire) 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Lasers"))
+        {
+            Pull();
+
+            if (CurrentHealth <= 0)
             {
-                foreach(GameObject s in shootOrigins) 
-                {
-                    nextFire = Time.time + fireRate;
-                    GameObject bullet = Instantiate(laserPrefab, s.transform.position, s.transform.rotation);
-                    bullet.GetComponent<Rigidbody>().AddForce(s.transform.forward * 5000);
-                    FindObjectOfType<AudioManager>().PlaySound("MetatronShoot");
-                    Destroy(bullet, 2);
-                }
+                GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+                Destroy(explosion, 1f);
+                Destroy(gameObject);
+                EnemyDeath.Invoke();
             }
         }
+
     }
+}
 

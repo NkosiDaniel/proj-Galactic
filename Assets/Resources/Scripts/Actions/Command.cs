@@ -43,7 +43,6 @@ namespace COMMAND
                     nextFire = Time.time + fireRate;
                     GameObject laser = Instantiate(laserPrefab, s.transform.position, s.transform.rotation);
                     laser.GetComponent<Rigidbody>().velocity = s.transform.TransformDirection(new Vector3(0, 0, fireSpeed));
-                    FindObjectOfType<AudioManager>().PlaySound("LaserShoot");
                     Destroy(laser, 2);
                 }
             }

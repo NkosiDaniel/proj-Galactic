@@ -27,14 +27,23 @@ public class SpaceshipBase : MonoBehaviour
         }
     }
 
-     public virtual void Pull()
+     public virtual void Pull(int value)
     {
         if (count > 0)
         {
             healthBar[count - 1].SetActive(false);
             count--;
         }
-    }
+       if (value > 1)
+       {
+            for (int i = 0; i < value; i++)
+            {
+            healthBar[count - 1].SetActive(false);
+            count--;
+            }
+       }
+       
+    }   
     //Encapsulation; getter methods for each serialized field
     public string Name { get{return name;} }
     public string Description { get{return description;} }

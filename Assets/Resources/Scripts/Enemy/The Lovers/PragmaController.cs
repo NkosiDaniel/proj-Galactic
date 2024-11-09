@@ -19,6 +19,7 @@ public class PragmaController : Enemy
     private bool colorChange = false;
 
 
+#region MONOBEHAVIOUR API
 
     private void Start()
     {
@@ -59,9 +60,11 @@ public class PragmaController : Enemy
                         phase = Phases.Elite;
                         //INVINCIBILITY
                         Invincible();
-
+                        //VISUAL EFFECT FOR PLAYER FEEDBACK
                         pragmaEye.SetActive(true);
                         ShakeEye();
+                        //1/8 CHANCE TO REGENERATE
+                        Regenerate();
 
                         Debug.Log("IN ETHERIC MODE");
                     }
@@ -76,7 +79,11 @@ public class PragmaController : Enemy
         }
 
     }
+#endregion
 
+//REGION BREAK 
+
+#region ETHERIC API
     private void ShakeEye()
     {
         if (phase == Phases.Elite)
@@ -88,13 +95,34 @@ public class PragmaController : Enemy
             pragmaEye.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.5f, 5, 0.5f);
         }
     }
-
+    /// <summary>
+    /// Pragma attacks at a rate of 0.4 seconds (DEFAULT)
+    /// Set the sole shooter towards the player and fire through local shootCommand variable's method.
+    /// </summary>
     public override void Attack()
     {
         shootOrigins[0].transform.LookAt(player);
         shootCommand.Execute();
     }
+    /// <summary>
+    /// 12.5% chance for Pragma to regenerate all of its health
+    /// Couple variable i with Getter properties to Push all health to max through a for loop.
+    /// </summary>
+    private void Regenerate() 
+    {
+        int num = UnityEngine.Random.Range(0, 8);
+        if(num == 1) 
+        {
+    
+                Push();
+                Push();
+        }
 
+    }
+    /// <summary>
+    /// Pragma is impervious to all attacks until in Etheric Mode
+    /// Disable and Enable box collider depending on its state. The other code is miscellaneous.
+    /// </summary>
     private void Invincible()
     {
         boxCollider.enabled = !boxCollider.enabled;
@@ -111,17 +139,13 @@ public class PragmaController : Enemy
         }
     }
 
+
     private void EthericMode()
     {
         //Will keep running until activation time is out
         if (activationTimer >= 0)
         {
-            //FOR ALL ENEMY ABILITIES
-            //FREEZE
-            //BARRAGE ATTACKS
             Attack();
-
-            //REGENERATION
         }
         else
         {
@@ -130,4 +154,6 @@ public class PragmaController : Enemy
             ShakeEye(); 
         }
     }
+    #endregion
 }
+

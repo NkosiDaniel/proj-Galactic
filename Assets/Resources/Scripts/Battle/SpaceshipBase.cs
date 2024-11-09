@@ -17,7 +17,7 @@ public class SpaceshipBase : MonoBehaviour
     [SerializeField] int defense;
     [SerializeField] int speed;
 
-
+    //ADD HEALTH
     public void Push()
     {
         if (count < maxCount)
@@ -26,7 +26,7 @@ public class SpaceshipBase : MonoBehaviour
             count++;
         }
     }
-
+    //SUBTRACT HEALTH
      public virtual void Pull()
     {
         if (count > 0)
@@ -35,6 +35,7 @@ public class SpaceshipBase : MonoBehaviour
             count--;
         }
     }
+
     //Encapsulation; getter methods for each serialized field
     public string Name { get{return name;} }
     public string Description { get{return description;} }

@@ -26,6 +26,7 @@ public class SpaceshipBase : MonoBehaviour
             count++;
         }
     }
+
     //SUBTRACT HEALTH
      public virtual void Pull()
     {
@@ -35,7 +36,6 @@ public class SpaceshipBase : MonoBehaviour
             count--;
         }
     }
-
     //Encapsulation; getter methods for each serialized field
     public string Name { get{return name;} }
     public string Description { get{return description;} }

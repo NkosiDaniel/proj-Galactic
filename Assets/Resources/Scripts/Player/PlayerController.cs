@@ -127,9 +127,6 @@ public class PlayerController : MonoBehaviour
     /// Instantiates laser prefabs to be fired towards a target based on fire rate.
     /// </summary>
 
-    public void UltimateAttack()
-    {
 
-    }
     #endregion ATTACK API
 }

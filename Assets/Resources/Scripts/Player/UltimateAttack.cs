@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateAttack : MonoBehaviour
+public class UltimateAttack : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private String name;
+    [SerializeField] private String description;
+    [SerializeField] private float activationTime;
+    [SerializeField] private float cooldown;
+    [SerializeField] private float damage;
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Execute() 
     {
-        
+        Debug.Log("Ultimate Attack has Executed!");
     }
 }

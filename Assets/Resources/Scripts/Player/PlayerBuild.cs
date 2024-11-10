@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBuild : MonoBehaviour
 {
+    [SerializeField] private UltimateAttack ultimateAttack;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -3,17 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateAttack : MonoBehaviour
+public class BeamAttack : UltimateAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    [Serialilzefield] private GameObject projectiles;
+    private override void Execute()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("BeamAttack Attck has Executed");
     }
 }

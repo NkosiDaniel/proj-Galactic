@@ -45,6 +45,11 @@ public class Enemy : SpaceshipBase
         phase = Phases.Base;
     }
 
+    private void Update() 
+    {
+        Attack();
+    }
+
     public virtual void Attack()
     {
         enemy.LookAt(player);

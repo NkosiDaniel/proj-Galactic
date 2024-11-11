@@ -1608,7 +1608,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1704,7 +1704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &338250665
 GameObject:
@@ -1939,6 +1939,84 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1001 &458619866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3841790865991936366, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b7aa2bda884cf4859a2ce12ed18ff685, type: 2}
+    - target: {fileID: 4708380175547125800, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_Name
+      value: The Lovers, Mania
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 67.35118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 161.01053
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340238358600354450, guid: 421d52be893214822992f184b517194a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 421d52be893214822992f184b517194a, type: 3}
 --- !u!1 &468742749
 GameObject:
   m_ObjectHideFlags: 0
@@ -7548,6 +7626,79 @@ Transform:
   m_Father: {fileID: 2047595501}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &566603240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4754229080493626382, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_Name
+      value: The Lovers, Philia
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.302856
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 137.24866
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382288107814506164, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ada033bcf5f34b3f900602a23f0c4c3, type: 3}
 --- !u!1 &572411772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,7 +7945,7 @@ Transform:
   m_Children:
   - {fileID: 410087041}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &672143759
 GameObject:
@@ -10947,7 +11098,7 @@ Transform:
   - {fileID: 958030014}
   - {fileID: 545786905}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510554321
 GameObject:
@@ -12226,7 +12377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1903778728 stripped
 GameObject:
@@ -12986,7 +13137,7 @@ Transform:
   - {fileID: 161793123}
   - {fileID: 947671048}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095347131
 GameObject:
@@ -13157,7 +13308,7 @@ PrefabInstance:
     - target: {fileID: 8336056891143137307, guid: 71dd4da75b7fe49d9a1d0006112b7253,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8336056891143137307, guid: 71dd4da75b7fe49d9a1d0006112b7253,
         type: 3}
@@ -13437,7 +13588,7 @@ PrefabInstance:
     - target: {fileID: 7643034201086399315, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7643034201086399315, guid: 820f95d63552643f08b12ffb1cba709b,
         type: 3}

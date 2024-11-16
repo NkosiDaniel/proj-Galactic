@@ -13,7 +13,7 @@ public class ProjectileAddon : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound(soundToPlay);
     }
     private void OnCollisionEnter(Collision other) {
-            if(explosionPrefab != null) {
+            if(explosionPrefab != null && other.gameObject.tag != this.gameObject.tag) {
             GameObject explosion = Instantiate(explosionPrefab, this.transform);
             Destroy(explosion, 1.5f);
         }

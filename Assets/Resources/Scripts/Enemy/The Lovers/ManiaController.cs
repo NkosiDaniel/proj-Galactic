@@ -21,7 +21,7 @@ public class ManiaController : Enemy
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        strongAttack = new ShootCommand(fireSpeed, fireRate * 1.2f, projectilePrefab, shootOrigins);
+        strongAttack = new ShootCommand(fireSpeed * 1.5f, fireRate * 2f, projectilePrefab, shootOrigins);
         weakAttack = new ShootCommand(fireSpeed, fireRate, secProjectile, secShootOrigins);
     }
 
@@ -42,7 +42,9 @@ public class ManiaController : Enemy
             strongAttack.Execute();
             attackCounter = 0;
         }
+
     }
 
-    
+    //Method for Special Ability
+
 }

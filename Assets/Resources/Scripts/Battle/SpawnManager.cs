@@ -12,21 +12,30 @@ public class SpawnManager : MonoBehaviour
 
 
 
-    private void Update() 
+    private void Update()
     {
-        if(waveIsDone)
+        if (waveIsDone)
             StartCoroutine(SpawnWaves());
     }
 
-    private IEnumerator SpawnWaves() 
+    private IEnumerator SpawnWaves()
     {
         waveIsDone = false;
 
-        foreach(var wave in waves) 
+        for (int i = 0; i <= waves.Length; i++)
         {
-            GameObject waveClone = Instantiate(wave, spawnPoints[0].transform.position, Quaternion.identity);
+            GameObject waveClone = Instantiate(waves[i], spawnPoints[0].transform.position, Quaternion.identity);
 
             yield return new WaitForSeconds(waveRate);
+
+            if (i == waves.Length - 1) 
+            {
+                Debug.Log("Coroutine has stopped running!");
+                waveIsDone = false;
+                StopCoroutine(SpawnWaves());
+            }
+
+
         }
 
         waveIsDone = true;

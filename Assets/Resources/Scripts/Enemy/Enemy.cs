@@ -32,6 +32,8 @@ public class Enemy : SpaceshipBase
     [SerializeField] private GameObject explosionPrefab;
     //ACTIONS
     public static event Action EnemyDeath;
+    [Header("Wave INFO")]
+    [SerializeField] private WaveController parentWave; //Referencing wave controller
 
     private void Start()
     {
@@ -45,7 +47,7 @@ public class Enemy : SpaceshipBase
         phase = Phases.Base;
     }
 
-    private void Update() 
+    private void Update()
     {
         Attack();
     }
@@ -71,6 +73,11 @@ public class Enemy : SpaceshipBase
             }
         }
 
+    }
+    private void OnDestroy()
+    {
+        if (parentWave != null)
+            parentWave.enemies.Remove(gameObject);
     }
 }
 

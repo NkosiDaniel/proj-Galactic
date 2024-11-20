@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,38 +9,30 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] waves;
     [SerializeField] private GameObject[] spawnPoints;
-    [SerializeField] private float waveRate;
-    private bool waveIsDone = true;
+    private int waveIndex;
 
-
-
-    private void Update()
+    private void Start()
     {
-        if (waveIsDone)
-            StartCoroutine(SpawnWaves());
+        SpawnWave();
     }
 
-    private IEnumerator SpawnWaves()
+    private void SpawnWave()
     {
-        waveIsDone = false;
+        if (waveIndex >= waves.Length) return;
 
-        for (int i = 0; i <= waves.Length; i++)
-        {
-            GameObject waveClone = Instantiate(waves[i], spawnPoints[0].transform.position, Quaternion.identity);
+        GameObject waveInstance = Instantiate(waves[waveIndex], spawnPoints[0].transform.position, quaternion.identity);
+        WaveController waveController = waveInstance.GetComponent<WaveController>();
 
-            yield return new WaitForSeconds(waveRate);
+        if (waveController != null)
+            waveController.onWaveDestroyed += HandleWaveDestroyed;
+    }
 
-            if (i == waves.Length - 1) 
-            {
-                Debug.Log("Coroutine has stopped running!");
-                waveIsDone = false;
-                StopCoroutine(SpawnWaves());
-            }
-
-
-        }
-
-        waveIsDone = true;
+    private void HandleWaveDestroyed(WaveController wave) 
+    {
+        wave.onWaveDestroyed -= HandleWaveDestroyed; //Cleaning up the listener
+        waveIndex++;
+        SpawnWave();
     }
 
 }
+

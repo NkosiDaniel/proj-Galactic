@@ -122,11 +122,4 @@ public class PlayerController : MonoBehaviour
 
     #endregion MOVEMENT API
 
-    #region ATTACK API
-    /// <summary>
-    /// Instantiates laser prefabs to be fired towards a target based on fire rate.
-    /// </summary>
-
-
-    #endregion ATTACK API
 }

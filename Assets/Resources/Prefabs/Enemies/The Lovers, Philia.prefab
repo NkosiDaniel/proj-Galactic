@@ -735,11 +735,10 @@ MonoBehaviour:
   - {fileID: 7067486003948697582}
   - {fileID: 2380997870506771134}
   - {fileID: 1537583800828172221}
-  defense: 0
-  speed: 0
   phase: 1
   projectilePrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
     type: 3}
+  points: 100
   fireSpeed: 100
   fireRate: 2
   shootOrigins:
@@ -748,6 +747,7 @@ MonoBehaviour:
   healthbarSprite: {fileID: 6958250762981363998}
   explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
     type: 3}
+  parentWave: {fileID: 0}
 --- !u!54 &682987979628263657
 Rigidbody:
   m_ObjectHideFlags: 0

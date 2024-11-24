@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] waves;
     [SerializeField] private GameObject[] spawnPoints;
+    [SerializeField] private TMP_Text waveText;
     private int waveIndex;
 
     private void Start()
     {
+        waveText.text = "Wave - " + (waveIndex + 1);
         SpawnWave();
     }
 
@@ -22,10 +25,11 @@ public class SpawnManager : MonoBehaviour
 
         GameObject waveInstance = Instantiate(waves[waveIndex], spawnPoints[0].transform.position, quaternion.identity);
         WaveController waveController = waveInstance.GetComponent<WaveController>();
+        waveText.text = "Wave - " + (waveIndex + 1);
 
         if (waveController != null)
             waveController.onWaveDestroyed += HandleWaveDestroyed;
-    }
+    } 
 
     private void HandleWaveDestroyed(WaveController wave) 
     {

@@ -23,6 +23,7 @@ public class ManiaController : Enemy
 
         strongAttack = new ShootCommand(fireSpeed * 1.5f, fireRate * 2f, projectilePrefab, shootOrigins);
         weakAttack = new ShootCommand(fireSpeed, fireRate, secProjectile, secShootOrigins);
+
     }
 
     private void Update()

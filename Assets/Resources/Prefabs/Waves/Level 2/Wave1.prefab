@@ -123,6 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
         type: 3}
+      propertyPath: points
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
       propertyPath: parentWave
       value: 
       objectReference: {fileID: 2078064509365125493}
@@ -215,6 +220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: points
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
         type: 3}
@@ -313,6 +323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
         type: 3}
+      propertyPath: points
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
       propertyPath: parentWave
       value: 
       objectReference: {fileID: 2078064509365125493}
@@ -405,6 +420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
+        type: 3}
+      propertyPath: points
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6811212646361576951, guid: 5ada033bcf5f34b3f900602a23f0c4c3,
         type: 3}

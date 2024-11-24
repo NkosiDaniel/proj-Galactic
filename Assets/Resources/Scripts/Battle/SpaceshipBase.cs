@@ -14,9 +14,6 @@ public class SpaceshipBase : MonoBehaviour
     private int count;
     private int maxCount;
 
-    [SerializeField] int defense;
-    [SerializeField] int speed;
-
     //ADD HEALTH
     public void Push()
     {
@@ -28,7 +25,7 @@ public class SpaceshipBase : MonoBehaviour
     }
 
     //SUBTRACT HEALTH
-     public virtual void Pull()
+    public virtual void Pull()
     {
         if (count > 0)
         {
@@ -37,14 +34,11 @@ public class SpaceshipBase : MonoBehaviour
         }
     }
     //Encapsulation; getter methods for each serialized field
-    public string Name { get{return name;} }
-    public string Description { get{return description;} }
-    public List<GameObject> HealthBar {get{return healthBar;} }
-    public int CurrentHealth { get{return count;} set{count = value;}  }
-    public int MaxHealth {get{return maxCount;} set{maxCount = value;}}
-    public int Defense { get{return defense;} }
-    public int Speed { get{return speed;} }
-    
-        
-    }
+    public string Name { get { return name; } }
+    public string Description { get { return description; } }
+    public List<GameObject> HealthBar { get { return healthBar; } }
+    public int CurrentHealth { get { return count; } set { count = value; } }
+    public int MaxHealth { get { return maxCount; } set { maxCount = value; } }
+
+}
 

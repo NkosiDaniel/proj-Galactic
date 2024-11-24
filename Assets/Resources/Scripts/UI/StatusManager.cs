@@ -17,6 +17,9 @@ public class StatusManager : MonoBehaviour
     [SerializeField] private TMP_Text statusScreenTxt;
     [SerializeField] private TMP_Text nextLvlTxt;
     [SerializeField] private TMP_Text returnTxt;
+    [Header("Music")]
+    [SerializeField] private string levelTheme;
+    private AudioManager audioManager;
 
     /*
     [Header("Prefabs")]
@@ -31,6 +34,8 @@ public class StatusManager : MonoBehaviour
     private void Start()
     {
         PlayerHealth.PlayerDied += ShowDefeatScreen;
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.PlaySound(levelTheme);
 
     }
     #region TIME API

@@ -18,6 +18,7 @@ public class Enemy : SpaceshipBase
 {
     public Phases phase;
     public GameObject projectilePrefab;
+    public float points;
     protected Transform player;
     protected Transform enemy;
     protected float nextFire;
@@ -34,6 +35,8 @@ public class Enemy : SpaceshipBase
     public static event Action EnemyDeath;
     [Header("Wave INFO")]
     [SerializeField] private WaveController parentWave; //Referencing wave controller
+    //Reference to ScoreManager
+    public static ScoreManager scoreManager;
 
     private void Start()
     {
@@ -45,6 +48,8 @@ public class Enemy : SpaceshipBase
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = transform;
         phase = Phases.Base;
+
+        scoreManager = GameObject.FindObjectOfType<ScoreManager>();
     }
 
     private void Update()
@@ -74,10 +79,11 @@ public class Enemy : SpaceshipBase
         }
 
     }
-    private void OnDestroy()
+    public void OnDestroy()
     {
         if (parentWave != null)
             parentWave.enemies.Remove(gameObject);
+        scoreManager.UpdateScore(points);
     }
 }
 

@@ -5,8 +5,9 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private float score;
     [SerializeField] private TMP_Text scoreText;
+    private float score;
+    
 
     public void UpdateScore(float value) 
     {

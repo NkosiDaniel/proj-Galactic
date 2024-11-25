@@ -19,23 +19,31 @@ public class Enemy : SpaceshipBase
     public Phases phase;
     public GameObject projectilePrefab;
     public float points;
+    public float targetDistance;
     protected Transform player;
     protected Transform enemy;
     protected float nextFire;
+    protected Vector3 distance;
+    private float distanceFrom;
+
+    [Header("Fire INFO")]
     [SerializeField] protected float fireSpeed = 100f;
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected List<GameObject> shootOrigins;
-    Command shootCommand;
 
     [Header("UI")]
     [SerializeField] private Image healthbarSprite;
+
     [Header("VFX")]
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private String explosionSound;
-    //ACTIONS
-    public static event Action EnemyDeath;
+
     [Header("Wave INFO")]
     [SerializeField] private WaveController parentWave; //Referencing wave controller
+
+    Command shootCommand;
+    //ACTIONS
+    public static event Action EnemyDeath;
     //Reference to ScoreManager
     public static ScoreManager scoreManager;
 
@@ -60,8 +68,17 @@ public class Enemy : SpaceshipBase
 
     public virtual void Attack()
     {
-        enemy.LookAt(player);
-        shootCommand.Execute();
+        //If PLAYER is in RANGE logic 
+        distance = (enemy.position - player.position);
+        distance.y = 0;
+        distanceFrom = distance.magnitude;
+        distance /= distanceFrom;
+
+        if (distanceFrom < targetDistance)
+        {
+            enemy.LookAt(player);
+            shootCommand.Execute();
+        }
     }
 
     private void OnCollisionEnter(Collision other)

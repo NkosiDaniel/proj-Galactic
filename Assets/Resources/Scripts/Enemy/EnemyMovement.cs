@@ -11,8 +11,6 @@ public class EnemyMovement : MonoBehaviour
    [SerializeField] float rotationSpeed;
    [SerializeField] float targetDistance;
 
-   private Enemy enemyController;
-
    private Transform player;
    private Transform enemy;
 
@@ -23,8 +21,6 @@ public class EnemyMovement : MonoBehaviour
    private Vector3 distance;
    private float distanceFrom;
 
-   private Boolean isShooting = false;
-
    private Vector3 currentVelocity;
 
    private void Awake() 
@@ -33,8 +29,6 @@ public class EnemyMovement : MonoBehaviour
         targetDirection = transform.up;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = this.transform;
-        enemyController = GetComponent<Enemy>();
-        
    }
 
    private void Update() 
@@ -58,11 +52,5 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.position = Vector3.SmoothDamp(enemy.position, player.position, ref currentVelocity , 0.5f, 5f);
         }
-        if(distanceFrom < targetDistance - 10) 
-        {
-            enemyController.Attack();
-        }
-        else
-            isShooting = false;
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAddon
   m_EditorClassIdentifier: 
   damage: 0
-  explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
+  explosionPrefab: {fileID: 984106296740774603, guid: ea7b9c7e857da41ea8205abe8eefa79f,
     type: 3}
   shootSound: PlayerShoot
   explodeSound: 

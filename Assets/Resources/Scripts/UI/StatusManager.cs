@@ -19,6 +19,7 @@ public class StatusManager : MonoBehaviour
     [SerializeField] private TMP_Text returnTxt;
     [Header("Music")]
     [SerializeField] private string levelTheme;
+    [SerializeField] private string ambience;
     private AudioManager audioManager;
 
     /*

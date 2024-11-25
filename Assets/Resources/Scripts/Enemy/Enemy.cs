@@ -31,6 +31,7 @@ public class Enemy : SpaceshipBase
     [SerializeField] private Image healthbarSprite;
     [Header("VFX")]
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private String explosionSound;
     //ACTIONS
     public static event Action EnemyDeath;
     [Header("Wave INFO")]
@@ -83,7 +84,9 @@ public class Enemy : SpaceshipBase
     {
         if (parentWave != null)
             parentWave.enemies.Remove(gameObject);
+
         scoreManager.UpdateScore(points);
+        FindObjectOfType<AudioManager>().PlaySound(explosionSound);
     }
 }
 

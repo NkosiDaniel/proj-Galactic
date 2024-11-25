@@ -4839,8 +4839,9 @@ GameObject:
   - component: {fileID: 232945398369044063}
   - component: {fileID: 2943618718416143626}
   - component: {fileID: 292323261443996241}
+  - component: {fileID: 8022324433733750727}
   m_Layer: 0
-  m_Name: laserPrefab
+  m_Name: playerLaser
   m_TagString: Lasers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4911,6 +4912,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8022324433733750727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2371309718506305463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c977f40257d7446938059c818fe103a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addon: {fileID: 11400000, guid: 39bf04a6f9f1a4f3aa3f2f9b89365fb2, type: 2}
 --- !u!1 &2396898605714655012
 GameObject:
   m_ObjectHideFlags: 0

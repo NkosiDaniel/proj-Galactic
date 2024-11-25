@@ -747,6 +747,7 @@ MonoBehaviour:
   healthbarSprite: {fileID: 6958250762981363998}
   explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
     type: 3}
+  explosionSound: DestroyShip
   parentWave: {fileID: 0}
 --- !u!54 &682987979628263657
 Rigidbody:

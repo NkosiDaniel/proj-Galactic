@@ -819,6 +819,7 @@ MonoBehaviour:
   healthbarSprite: {fileID: 2785663787865258699}
   explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
     type: 3}
+  explosionSound: DestroyShip
   parentWave: {fileID: 0}
   secProjectile: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
     type: 3}

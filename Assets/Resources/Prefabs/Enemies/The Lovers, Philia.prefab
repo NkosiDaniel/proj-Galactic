@@ -739,6 +739,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7184146254418188990, guid: c74dfa26ef65e45a3887023a155b1067,
     type: 3}
   points: 100
+  targetDistance: 500
   fireSpeed: 100
   fireRate: 2
   shootOrigins:

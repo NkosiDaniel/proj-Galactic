@@ -7,17 +7,24 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using COMMAND;
+using UnityEngine.Rendering;
+using DG.Tweening;
 
 
 public class PlayerController : MonoBehaviour
 {
     
-    public Camera mainCamera;
+    private  Camera mainCamera;
+    private Vector3 mousePos;
 
     [Header("Movement Variables")]
     [SerializeField] float moveSpeed = 1;
     [SerializeField]float maxVelocity = 3;
     [SerializeField]float maxTurnSpeed = 0.01f;
+    [SerializeField] float minDist = 1;
+    [SerializeField] float smoothTime = 0.5f;
+    private float angle = 0f;
+    private float currVelocity;
     
     [Header("Dash Info")]
     [SerializeField] private float dashSpeed;
@@ -57,12 +64,29 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Update() {
-        moveX = Input.GetAxis("Horizontal");
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.y = 1;
+        
+        float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+        float angleDeg = (180/ Mathf.PI) * angleRad - 90;
+
+        transform.rotation = Quaternion.Euler(0f, angleDeg, 0f);
+        Debug.DrawLine(transform.position, mousePos, Color.white, Time.deltaTime);
+
+        moveY = Input.GetAxis("Vertical");
+
+       /* moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
         Rotate(transform, moveX * maxTurnSpeed);
+
+        /*Vector3 rotation = mousePos - transform.position;
+        float targetAngle = Vector3.SignedAngle(Vector3.right, rotation, Vector3.up);
+        angle = Mathf.SmoothDampAngle(angle, targetAngle, ref currVelocity, smoothTime, maxTurnSpeed);
+        transform.eulerAngles = new Vector3(0, targetAngle, 0);*/
 
         dashTime -= Time.deltaTime;
         dashCoolDownTimer -= Time.deltaTime;
@@ -94,7 +118,7 @@ public class PlayerController : MonoBehaviour
             transform.position += dashForce * Time.deltaTime;
         }
 
-        Vector3 force = transform.forward * amount * -moveSpeed;
+        Vector3 force = -moveSpeed * amount * transform.forward;
         transform.position += force * Time.deltaTime;
     }
     

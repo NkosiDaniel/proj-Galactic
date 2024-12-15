@@ -21,7 +21,7 @@ public class ProjectileAddon : MonoBehaviour
                     GameObject explosion = Instantiate(addon.ExpPrefab, this.transform);
                     Destroy(explosion, 1.5f);
                 }
-                Destroy(this);
+                Destroy(this, 0.01f);
             }
         }
         else

@@ -638,7 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d168e954d1384d8ba27741c2194d682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   scoreText: {fileID: 1370188935}
 --- !u!1 &222346179
 GameObject:
@@ -1596,8 +1595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 5571002328480331865, guid: 88f3cef23324f4137b4e50a43423e37a, type: 3}
   - {fileID: 6876683501190164444, guid: c647f9cdcc9fc4dc2bb797805ee5e508, type: 3}
+  - {fileID: 5571002328480331865, guid: 88f3cef23324f4137b4e50a43423e37a, type: 3}
   spawnPoints:
   - {fileID: 449394769}
   waveText: {fileID: 665050399}

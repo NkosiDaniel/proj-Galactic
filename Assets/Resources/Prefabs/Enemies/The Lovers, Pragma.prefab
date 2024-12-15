@@ -1012,6 +1012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Lovers, Pragma
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be710b2649c2f482aac0855b142b6049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1136,6 +1141,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5707088588833319807, guid: 4c9962f8e7fe54fafa1519d56295ad20,
     type: 3}
   points: 1200
+  targetDistance: 0
   fireSpeed: 100
   fireRate: 0.4
   shootOrigins:
@@ -1143,6 +1149,7 @@ MonoBehaviour:
   healthbarSprite: {fileID: 8531021012526024915}
   explosionPrefab: {fileID: 984106296740774603, guid: cab158ed98d8a4cd3ac26a4de2029ea2,
     type: 3}
+  explosionSound: 
   parentWave: {fileID: 0}
   pragmaEye: {fileID: 8252706532262700979}
 --- !u!95 &9085983277598770504

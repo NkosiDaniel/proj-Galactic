@@ -666,6 +666,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Lovers, Philia
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b942f34d93e746f483c5104dc938b93,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5811517544658636179, guid: 0b942f34d93e746f483c5104dc938b93,
         type: 3}
       propertyPath: m_LocalPosition.x

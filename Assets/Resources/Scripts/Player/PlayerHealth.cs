@@ -11,7 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject player;
     private int count;
-    private int maxCount;
+    private static int maxCount;
+    private int maxPotential = 6;
 
     public static event Action PlayerDied;
 
@@ -19,8 +20,10 @@ public class PlayerHealth : MonoBehaviour
     {
         PlayerDied += Explode;
 
-        maxCount = healthBar.Count;
-        count = healthBar.Count;
+        maxCount = maxPotential;
+        count = maxPotential;
+
+        IncreaseMaximum();
     }
 
     public void Push()
@@ -32,6 +35,21 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void IncreaseMaximum() 
+    {
+        if(maxPotential <= 12) 
+        {
+            maxPotential++;
+            maxCount = maxPotential;
+            count = maxCount;
+            healthBar[maxPotential-1].SetActive(true);
+        }
+    }
+
+    public void DecreaseMaximum() 
+    {
+
+    }
     public void Pull()
     {
         if (count > 0)

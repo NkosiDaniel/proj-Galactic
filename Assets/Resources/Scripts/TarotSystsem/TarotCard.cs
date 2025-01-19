@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(fileName = "Tarot Card", menuName = "Cards/Card")]
 public class TarotCard : ScriptableObject
 {
     //Rarity coefficient
-    private float rarityCoeff;
-    private bool reroll;
+    [SerializeField] private float rarityCoeff;
+    [SerializeField] private bool rerollable;
+    [SerializeField] private TarotAbility ability;
+    [SerializeField] private Sprite tarotIllustration;
+    private bool quickExecute;
+    private TarotSystem tarotSystem;
 
-    private void Execute() 
+    private void Execute()
     {
+        ability.Execute();
+        tarotSystem.Instance().Draws -= 1;
 
-    } 
+    }
+
+    public float RC { get { return rarityCoeff; } }
+    public bool IsRerollable { get { return rerollable; } }
+    public Sprite TarotImage { get {return tarotIllustration; } }
 }

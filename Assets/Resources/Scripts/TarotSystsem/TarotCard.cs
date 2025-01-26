@@ -18,7 +18,7 @@ public class TarotCard : ScriptableObject
     {
         ability.Execute();
         tarotSystem.Instance().Draws -= 1;
-
+        
     }
 
     public float RC { get { return rarityCoeff; } }

@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Empress : MonoBehaviour
+public class Empress : TarotAbility
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private PlayerShield playerShield;
 
-    // Update is called once per frame
-    void Update()
+    override
+    public void Execute()
     {
-        
+        playerHealth.SetMaxHealth();
+        playerShield.SetMaxShield();
     }
 }

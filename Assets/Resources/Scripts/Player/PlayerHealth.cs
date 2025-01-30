@@ -33,6 +33,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void SetMaxHealth()
+    {
+        for ( ; count < maxCount; count++)
+        {
+            healthBar[count].SetActive(true);
+        }
+    }
+
     public void IncreaseMaximum() 
     {
         if(maxPotential <= 12) 

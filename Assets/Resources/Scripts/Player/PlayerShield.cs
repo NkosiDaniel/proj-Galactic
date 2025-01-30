@@ -64,6 +64,14 @@ public class PlayerShield : MonoBehaviour
             return;
     }
 
+    public void SetMaxShield()
+    {
+        for ( ; count < maxCount; count++)
+        {
+            shieldBar[count].SetActive(true);
+        }
+    }
+
     public void Pull()
     {
         if (count > 0)

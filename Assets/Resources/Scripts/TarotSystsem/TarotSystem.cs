@@ -25,7 +25,7 @@ public class TarotSystem : MonoBehaviour
         instance = this;
         draws = 1;
     }
-
+//All the state logic is decided in this Update block
     private void Update()
     {
         if (readingState == ReadingState.START)
@@ -33,6 +33,7 @@ public class TarotSystem : MonoBehaviour
             TarotReading newReading = new TarotReading(cardList);
             readingScreen.SetActive(true);
             readingState = ReadingState.ACTIVE;
+            ReadingSetup(newReading);
         }
 
         if (readingState == ReadingState.ACTIVE)

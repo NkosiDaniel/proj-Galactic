@@ -5,13 +5,13 @@ using UnityEngine.UIElements;
 
 public class TarotReading : MonoBehaviour
 {
-    private List<TarotCard> cardList;
+    private List<TarotCard> cardList; //This list is sent over by the tarot system, the global cards to be drawed from
     private List<TarotCard> modList; //This is for cards that execute their effects during the next reading
     private List<TarotCard> selectedList; //This is the random generated list from the given list of tarot cards
     private int listSize; //This is the amount of cards that can be selected for a drawing
 
-    private int draws; //The amount of times the player can choose a card
 
+//Constructor 
     public TarotReading(List<TarotCard> cardList, List<TarotCard> modList = null)
     {
         this.cardList = cardList;
@@ -36,6 +36,6 @@ public class TarotReading : MonoBehaviour
             }
         }
     }
-
+//Property
     public List<TarotCard> AvailableSelection { get { return selectedList; } }
 }

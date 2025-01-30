@@ -9753,10 +9753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c977f40257d7446938059c818fe103a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  explosionPrefab: {fileID: 984106296740774603, guid: 9c1313e397a39416da1a7ea38a99f26d,
-    type: 3}
-  soundToPlay: PragmaShoot
+  addon: {fileID: 11400000, guid: 03446eeee208a440f85234e7239e4f44, type: 2}
 --- !u!1 &7327627897830249093
 GameObject:
   m_ObjectHideFlags: 0

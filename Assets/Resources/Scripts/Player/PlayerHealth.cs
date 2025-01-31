@@ -22,8 +22,6 @@ public class PlayerHealth : MonoBehaviour
 
         maxCount = maxPotential;
         count = maxPotential;
-
-        IncreaseMaximum();
     }
 
     public void Push()

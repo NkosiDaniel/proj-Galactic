@@ -5,13 +5,32 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
+    // This is the Singleton instance
+    public static ScoreManager Instance { get; private set; }
+
     [SerializeField] private TMP_Text scoreText;
     private float score;
-    
 
-    public void UpdateScore(float value) 
+    // score multiplier variable
+    public float scoreMultiplier = 1.0f;
+
+    private void Awake()
     {
-        score += value;
-        scoreText.text = "Score - " + score;
+        // Implement Singleton pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Keeps this object across scenes
+        }
+    }
+    public void UpdateScore(float value)
+    {
+        // Adjust score based on multiplier
+        score += value * scoreMultiplier;
+        scoreText.text = "Score - " + score.ToString("F2"); // Display score with 2 decimal places
     }
 }

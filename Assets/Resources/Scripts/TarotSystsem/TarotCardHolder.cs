@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TarotCardHolder : MonoBehaviour
 {
-    private TarotCard tarotCard;
+   [SerializeField] private TarotCard tarotCard;
 
     public TarotCard CardInfo {get { return tarotCard;} set { tarotCard = value; } }
 }

@@ -1,7 +1,8 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "Tarot Ability", menuName = "Abilities/Justice")]
 public class Justice : TarotAbility
 {
+    override
     public void Execute()
     {
         // Access the ScoreManager instance

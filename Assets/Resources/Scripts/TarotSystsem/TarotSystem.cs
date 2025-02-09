@@ -19,21 +19,23 @@ public class TarotSystem : MonoBehaviour
     private ReadingState readingState; //Will control the flow of the reading
     private static TarotSystem instance;
     private int draws;
+    private TarotReading currentReading;
 
     private void Start()
     {
         instance = this;
         draws = 1;
+        readingState = ReadingState.START;
     }
 //All the state logic is decided in this Update block
     private void Update()
     {
         if (readingState == ReadingState.START)
         {
-            TarotReading newReading = new TarotReading(cardList);
+            currentReading = new TarotReading(cardList, 3);
             readingScreen.SetActive(true);
             readingState = ReadingState.ACTIVE;
-            ReadingSetup(newReading);
+            ReadingSetup();
         }
 
         if (readingState == ReadingState.ACTIVE)
@@ -51,10 +53,10 @@ public class TarotSystem : MonoBehaviour
         }
     }
 
-    private void ReadingSetup(TarotReading reading) 
+    private void ReadingSetup() 
     {  
         GameObject[] cards = gameCards.ToArray();
-        TarotCard[] data = reading.AvailableSelection.ToArray();
+        TarotCard[] data = currentReading.AvailableSelection.ToArray();
 
         for(int i = 0; i < gameCards.Count; i++) 
         {

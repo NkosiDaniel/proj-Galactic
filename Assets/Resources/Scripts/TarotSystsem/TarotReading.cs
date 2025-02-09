@@ -12,10 +12,13 @@ public class TarotReading : MonoBehaviour
 
 
 //Constructor 
-    public TarotReading(List<TarotCard> cardList, List<TarotCard> modList = null)
+    public TarotReading(List<TarotCard> cardList, int listSize = 0, List<TarotCard> modList = null)
     {
         this.cardList = cardList;
         this.modList = modList;
+        this.listSize = listSize;
+
+        selectedList = new List<TarotCard>();
 
         TarotCard[] tarotArray = cardList.ToArray();
 

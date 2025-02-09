@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62e28d237c404ce291174e99a24a2f5, type: 3}
-  m_Name: Create Tarot
+  m_Script: {fileID: 11500000, guid: fda6ab93164444b6392bdee5801a6994, type: 3}
+  m_Name: HermitAb
   m_EditorClassIdentifier: 
-  cardType: 10
-  rarityCoeff: 0
-  reroll: 0
+  abilityName: The Draw Dealing

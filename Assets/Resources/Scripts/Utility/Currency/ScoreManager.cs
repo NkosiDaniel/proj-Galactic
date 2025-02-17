@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get; private set; }
 
     [SerializeField] private TMP_Text scoreText;
-    private float score;
+    public float score;
 
     // score multiplier variable
     public float scoreMultiplier = 1.0f;

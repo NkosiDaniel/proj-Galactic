@@ -88,7 +88,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Level2Theme
-    clip: {fileID: 8300000, guid: cdf0e27791efa44429c17b6cf8e97c04, type: 3}
+    clip: {fileID: 0}
     loop: 0
     volume: 1
     pitch: 1
@@ -96,6 +96,12 @@ MonoBehaviour:
   - name: PlayerShoot
     clip: {fileID: 8300000, guid: 8d46a1a9eae564f86827ca6d089d1015, type: 3}
     loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Level3Theme
+    clip: {fileID: 8300000, guid: 74fe95b440986412cad6edcdab4051d1, type: 3}
+    loop: 1
     volume: 1
     pitch: 1
     source: {fileID: 0}

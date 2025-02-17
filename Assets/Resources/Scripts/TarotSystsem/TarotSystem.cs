@@ -25,7 +25,7 @@ public class TarotSystem : MonoBehaviour
     {
         instance = this;
         draws = 1;
-        readingState = ReadingState.START;
+        readingState = ReadingState.INACTIVE;
     }
 //All the state logic is decided in this Update block
     private void Update()
@@ -51,6 +51,11 @@ public class TarotSystem : MonoBehaviour
             readingScreen.SetActive(false);
             readingState = ReadingState.INACTIVE;
         }
+    }
+
+    public void StartReading() 
+    {
+        readingState = ReadingState.START;
     }
 
     private void ReadingSetup() 

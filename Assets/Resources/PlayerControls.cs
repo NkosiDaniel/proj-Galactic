@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TarotMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""5cbd7057-1f83-471c-8e77-84ebf799077a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,6 +192,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81061edc-e1f8-4c8f-8f79-338889bc21eb"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TarotMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14ed7fd4-2413-4226-96c8-d0ed0457eb68"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TarotMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +227,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
+        m_Gameplay_TarotMenu = m_Gameplay.FindAction("TarotMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +294,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Dash;
+    private readonly InputAction m_Gameplay_TarotMenu;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -271,6 +304,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
+        public InputAction @TarotMenu => m_Wrapper.m_Gameplay_TarotMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -295,6 +329,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @TarotMenu.started += instance.OnTarotMenu;
+            @TarotMenu.performed += instance.OnTarotMenu;
+            @TarotMenu.canceled += instance.OnTarotMenu;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -314,6 +351,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @TarotMenu.started -= instance.OnTarotMenu;
+            @TarotMenu.performed -= instance.OnTarotMenu;
+            @TarotMenu.canceled -= instance.OnTarotMenu;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -338,5 +378,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnTarotMenu(InputAction.CallbackContext context);
     }
 }

@@ -103,7 +103,7 @@ public class Enemy : SpaceshipBase
             parentWave.enemies.Remove(gameObject);
 
         scoreManager.UpdateScore(points);
-        FindObjectOfType<AudioManager>().PlaySound(explosionSound);
+        FindObjectOfType<AudioManager>().PlaySound("DestroyShip");
     }
 }
 

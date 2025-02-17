@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62e28d237c404ce291174e99a24a2f5, type: 3}
   m_Name: ThePriestress
   m_EditorClassIdentifier: 
-  rarityCoeff: 0
+  rarityCoeff: 5.25
   rerollable: 0
-  ability: {fileID: 0}
-  tarotIllustration: {fileID: 0}
+  ability: {fileID: 11400000, guid: a6b45ea4d28bd4fdfa2b745292889051, type: 2}
+  tarotIllustration: {fileID: 21300000, guid: cf656a693e1af4f79a0360cae819377c, type: 3}

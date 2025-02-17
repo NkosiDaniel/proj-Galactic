@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62e28d237c404ce291174e99a24a2f5, type: 3}
   m_Name: TheHermit
   m_EditorClassIdentifier: 
-  rarityCoeff: 0
+  rarityCoeff: 5.25
   rerollable: 0
-  ability: {fileID: 0}
-  tarotIllustration: {fileID: 0}
+  ability: {fileID: 11400000, guid: 6a1820d9c88914c479d682966f898286, type: 2}
+  tarotIllustration: {fileID: 21300000, guid: ca085bbdb74014fbfb6df31a926a88f1, type: 3}

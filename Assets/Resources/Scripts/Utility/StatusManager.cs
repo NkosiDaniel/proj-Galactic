@@ -38,6 +38,8 @@ public class StatusManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.PlaySound(levelTheme);
 
+        SpawnManager.LastWave += ShowVictoryScreen;
+
     }
     #region TIME API
     private void Update()

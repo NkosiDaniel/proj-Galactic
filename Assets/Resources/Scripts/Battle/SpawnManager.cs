@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private TMP_Text waveText;
     private int waveIndex;
+    public delegate void OnZeroWaves();
+    public static event OnZeroWaves LastWave;
 
     private void Start()
     {
@@ -33,6 +35,8 @@ public class SpawnManager : MonoBehaviour
 
     private void HandleWaveDestroyed(WaveController wave) 
     {
+        if(waveIndex >= waves.Length) LastWave?.Invoke();
+
         wave.onWaveDestroyed -= HandleWaveDestroyed; //Cleaning up the listener
         waveIndex++;
         SpawnWave();

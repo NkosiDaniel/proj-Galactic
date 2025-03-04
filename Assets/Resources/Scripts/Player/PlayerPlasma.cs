@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerPlasma : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] List<GameObject> plasmaBar = new List<GameObject>();
+    [SerializeField] UltimateAttack ultimateAttack;
+    private int plasmaCount;
+    private int maxPlasma;
+
+    public void Start()
     {
-        
+        plasmaCount = plasmaBar.Count;
+        maxPlasma = plasmaBar.Count;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ActivateUltimate()
     {
-        
+        if (ultimateAttack != null)
+        {
+            if (ultimateAttack.ActivationCost <= plasmaCount)
+            {
+
+            }
+        }
     }
+
+    public void DecreasePlasma(int valuet) 
+    {
+       
+    }
+
 }

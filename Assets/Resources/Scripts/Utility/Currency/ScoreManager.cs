@@ -27,10 +27,15 @@ public class ScoreManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // Optional: Keeps this object across scenes
         }
     }
+
+    private void Start() 
+    {
+        scoreText.text = "Score - " + score;
+    }
     public void UpdateScore(float value)
     {
         // Adjust score based on multiplier
         score += value * scoreMultiplier;
-        scoreText.text = "Score - " + score.ToString("F2"); // Display score with 2 decimal places
+        scoreText.text = "Score - " + score; // Display score with 2 decimal places
     }
 }

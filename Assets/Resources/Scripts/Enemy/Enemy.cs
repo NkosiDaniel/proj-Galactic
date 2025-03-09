@@ -89,13 +89,26 @@ public class Enemy : SpaceshipBase
 
             if (CurrentHealth <= 0)
             {
-                GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
-                Destroy(explosion, 1f);
-                Destroy(gameObject);
-                EnemyDeath.Invoke();
+                DestroyEnemy();
             }
         }
+        else if (other.gameObject.CompareTag("UltLaser"))
+        {
+            Pull(other.gameObject.GetComponent<ProjectileAddon>().ProjectAddon.Damage);
 
+            if (CurrentHealth <= 0)
+            {
+                DestroyEnemy();
+            }
+        }
+    }
+
+    public void DestroyEnemy()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
+        Destroy(explosion, 1f);
+        Destroy(gameObject);
+        EnemyDeath.Invoke();
     }
     public void OnDestroy()
     {

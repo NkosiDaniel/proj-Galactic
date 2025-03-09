@@ -8,6 +8,7 @@ TagManager:
   - Lasers
   - region
   - EnemyLasers
+  - UltLaser
   layers:
   - Default
   - TransparentFX

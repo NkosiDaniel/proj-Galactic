@@ -18,7 +18,6 @@ public class TarotMenu : MonoBehaviour
     private PlayerControls playerControls;
     private int cost;
     private ScoreManager scoreManager;
-    private TarotSystem tarotSystem;
 
     void Awake()
     {
@@ -64,7 +63,9 @@ public class TarotMenu : MonoBehaviour
             confirmButton.gameObject.SetActive(false);
             cancelButton.gameObject.SetActive(false);
 
-            tarotSystem.Instance().StartReading();
+            scoreManager.UpdateScore(-cost);
+
+            TarotSystem.Instance.StartReading();
 
             cost += 50;
         }

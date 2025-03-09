@@ -12,7 +12,7 @@ public class ProjectileAddon : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (addon.PlayerAddon)
+        if (addon.PlayerAddon && this.gameObject.CompareTag("Lasers"))
         {
             if (!other.gameObject.CompareTag("Player"))
             {
@@ -32,4 +32,5 @@ public class ProjectileAddon : MonoBehaviour
             Destroy(this);
         }
     }
+    public Addon ProjectAddon {get {return addon;}}
 }

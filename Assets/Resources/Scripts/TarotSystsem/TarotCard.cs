@@ -12,12 +12,11 @@ public class TarotCard : ScriptableObject
     [SerializeField] private TarotAbility ability;
     [SerializeField] private Sprite tarotIllustration;
     private bool quickExecute;
-    private TarotSystem tarotSystem; //Might remove later, this references the global tarot system
 
     private void Execute()
     {
         ability.Execute();
-        tarotSystem.Instance().Draws -= 1;
+        TarotSystem.Instance.Draws -= 1;
     }
 
     public float RC { get { return rarityCoeff; } }

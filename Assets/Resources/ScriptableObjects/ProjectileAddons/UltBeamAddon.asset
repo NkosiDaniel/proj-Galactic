@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8856c35c7ed98485c90e4d59d8105652, type: 3}
-  m_Name: PlayerUltBeam
+  m_Name: UltBeamAddon
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 4
   explosionPrefab: {fileID: 0}
-  shootSound: 
+  shootSound: UltBeamShoot
   explodeSound: 
   playerAddon: 1

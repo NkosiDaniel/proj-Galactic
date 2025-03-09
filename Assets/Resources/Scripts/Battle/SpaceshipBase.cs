@@ -25,12 +25,15 @@ public class SpaceshipBase : MonoBehaviour
     }
 
     //SUBTRACT HEALTH
-    public virtual void Pull()
+    public virtual void Pull(int value = 1)
     {
-        if (count > 0)
+        for (int i = 0; i < value; i++)
         {
-            healthBar[count - 1].SetActive(false);
-            count--;
+            if (count > 0)
+            {
+                healthBar[count - 1].SetActive(false);
+                count--;
+            }
         }
     }
     //Encapsulation; getter methods for each serialized field

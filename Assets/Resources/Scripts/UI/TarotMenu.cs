@@ -25,6 +25,7 @@ public class TarotMenu : MonoBehaviour
         playerControls.Gameplay.TarotMenu.performed += ctx => ShowTarotMenu();
     }
 
+
     void OnEnable()
     {
         playerControls.Gameplay.Enable();
@@ -44,6 +45,9 @@ public class TarotMenu : MonoBehaviour
         scoreManager = ScoreManager.Instance;
 
         tarotMenu.SetActive(false);
+
+        PlayerHealth.PlayerDied += OnDisable;
+        SpawnManager.LastWave += OnDisable;
     }
 
     public void ShowTarotMenu()

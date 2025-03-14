@@ -15,8 +15,15 @@ public class PlayerPlasma : MonoBehaviour
     private int maxPlasma;
     private float cooldownMax;
     private float cooldownTimer;
+    private PlayerControls controls;
 
-    public void Start()
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.Ultimate.performed += ctx => ActivateUlt();
+    }
+
+    private void Start()
     {
         Enemy.EnemyDeath += Push;
 
@@ -29,33 +36,44 @@ public class PlayerPlasma : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && cooldownTimer < 0)
+        cooldownTimer -= Time.deltaTime;
+    }
+
+    void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
+    }
+
+    private void ActivateUlt()
+    {
+        if (cooldownTimer < 0 && ultimateAttack.ActivationCost <= plasmaCount)
         {
-            ActivateUltimate();
+            UtilizeUlt();
             Camera.main.DOShakePosition(2f, 5f, 10, 90f, true);
             cooldownTimer = cooldownMax;
-            
+
             ultMoveText.text = ultimateAttack.Name;
             ultMoveText.gameObject.SetActive(true);
             ultMoveText.DOFade(0f, 2f);
         }
-        cooldownTimer -= Time.deltaTime;
+
     }
 
-    private void ActivateUltimate()
+    private void UtilizeUlt()
     {
         if (ultimateAttack != null)
         {
-            if (ultimateAttack.ActivationCost <= plasmaCount)
-            {
                 ultMoveText.gameObject.SetActive(false);
                 ultMoveText.alpha = 1f;
-                
+
                 Pull(ultimateAttack.ActivationCost);
 
                 BeamUlt();
-
-            }
         }
     }
 
@@ -67,17 +85,23 @@ public class PlayerPlasma : MonoBehaviour
 
     public void Pull(int value)
     {
-        for (int i = 0; i < value; i++)
+        if (plasmaCount > 0)
         {
-            plasmaBar[plasmaCount - 1].SetActive(false);
-            plasmaCount--;
+            for (int i = 0; i < value; i++)
+            {
+                plasmaBar[plasmaCount - 1].SetActive(false);
+                plasmaCount--;
+            }
         }
     }
 
     public void Push()
     {
-        plasmaBar[plasmaCount - 1].SetActive(true);
-        plasmaCount++;
+        if (plasmaCount <  maxPlasma)
+        {
+            plasmaBar[plasmaCount - 1].SetActive(true);
+            plasmaCount++;
+        }
     }
 
 }

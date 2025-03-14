@@ -80,6 +80,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ultimate"",
+                    ""type"": ""Button"",
+                    ""id"": ""487609e7-3009-4586-853b-454674473fec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""TarotMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92605d59-8df9-48a2-a761-8b5652cb1595"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ultimate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2289798-9ed3-47f3-8fe7-6a91596f9b82"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ultimate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +259,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_TarotMenu = m_Gameplay.FindAction("TarotMenu", throwIfNotFound: true);
+        m_Gameplay_Ultimate = m_Gameplay.FindAction("Ultimate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +327,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_TarotMenu;
+    private readonly InputAction m_Gameplay_Ultimate;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -305,6 +338,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
         public InputAction @TarotMenu => m_Wrapper.m_Gameplay_TarotMenu;
+        public InputAction @Ultimate => m_Wrapper.m_Gameplay_Ultimate;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -332,6 +366,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TarotMenu.started += instance.OnTarotMenu;
             @TarotMenu.performed += instance.OnTarotMenu;
             @TarotMenu.canceled += instance.OnTarotMenu;
+            @Ultimate.started += instance.OnUltimate;
+            @Ultimate.performed += instance.OnUltimate;
+            @Ultimate.canceled += instance.OnUltimate;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -354,6 +391,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TarotMenu.started -= instance.OnTarotMenu;
             @TarotMenu.performed -= instance.OnTarotMenu;
             @TarotMenu.canceled -= instance.OnTarotMenu;
+            @Ultimate.started -= instance.OnUltimate;
+            @Ultimate.performed -= instance.OnUltimate;
+            @Ultimate.canceled -= instance.OnUltimate;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -379,5 +419,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnTarotMenu(InputAction.CallbackContext context);
+        void OnUltimate(InputAction.CallbackContext context);
     }
 }

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using COMMAND;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class StatusManager : MonoBehaviour
 {
     [Header("Timer Info")]
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private float setTime; 
+    [SerializeField] private float setTime;
     public float timeScale = 1f;
 
     [Header("Game UI")]
@@ -17,6 +18,7 @@ public class StatusManager : MonoBehaviour
     [SerializeField] private TMP_Text statusScreenTxt;
     [SerializeField] private TMP_Text nextLvlTxt;
     [SerializeField] private TMP_Text returnTxt;
+    [SerializeField] private Selectable initialSelection;
     [Header("Music")]
     [SerializeField] private string levelTheme;
     [SerializeField] private string ambience;
@@ -39,7 +41,6 @@ public class StatusManager : MonoBehaviour
         audioManager.PlaySound(levelTheme);
 
         SpawnManager.LastWave += ShowVictoryScreen;
-
     }
     #region TIME API
     private void Update()
@@ -52,55 +53,58 @@ public class StatusManager : MonoBehaviour
             SpawnEnemy();
             instantiateTimer = 5;
         } */
-        UpdateTimer();
+        // UpdateTimer();
     }
 
-    private void UpdateTimer()
-    {
-        int hours = Mathf.FloorToInt(setTime / 3600f);
-        int minutes = Mathf.FloorToInt((setTime - hours * 3000f) / 60f);
-        int seconds = Mathf.FloorToInt(setTime - hours * 3600f - (minutes * 60f));
+    /* private void UpdateTimer()
+     {
+         int hours = Mathf.FloorToInt(setTime / 3600f);
+         int minutes = Mathf.FloorToInt((setTime - hours * 3000f) / 60f);
+         int seconds = Mathf.FloorToInt(setTime - hours * 3600f - (minutes * 60f));
 
-        string clockString = string.Format("{0:00}:{1:00}", minutes, seconds);
-        timerText.text = clockString;
+         string clockString = string.Format("{0:00}:{1:00}", minutes, seconds);
+         timerText.text = clockString;
 
-        CheckTime();
-    }
+         CheckTime();
+     }
 
-    private void CheckTime()
-    {
-        if (setTime <= 0f)
-        {
-            ShowVictoryScreen();
-        }
-    }
-    #endregion
+     private void CheckTime()
+     {
+         if (setTime <= 0f)
+         {
+             ShowVictoryScreen();
+         }
+     }
+     #endregion
 
-    #region EVENTS API
-    /*private void SpawnEnemy()
-    {
-        if(spawnPoints.Count > 0) {
-        Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
-        Instantiate(theStars, randomSpawn.position, Quaternion.identity);
-        }
-    }*/
+     #region EVENTS API
+     /*private void SpawnEnemy()
+     {
+         if(spawnPoints.Count > 0) {
+         Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Count)].transform;
+         Instantiate(theStars, randomSpawn.position, Quaternion.identity);
+         }
+     }*/
     #endregion
 
     #region UI MANAGER
-    public void ShowVictoryScreen() 
+    public void ShowVictoryScreen()
     {
         Time.timeScale = 0f;
         statusScreen.SetActive(true);
         nextLvlTxt.gameObject.SetActive(true);
+        initialSelection.Select();
+
 
         statusScreenTxt.text = "Victory!";
     }
 
-    public void ShowDefeatScreen() 
+    public void ShowDefeatScreen()
     {
         Time.timeScale = 0f;
         statusScreen.SetActive(true);
         nextLvlTxt.gameObject.SetActive(false);
+        initialSelection.Select();
 
         statusScreenTxt.text = "Defeat!";
     }

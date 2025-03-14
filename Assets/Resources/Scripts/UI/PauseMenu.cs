@@ -33,6 +33,9 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseCommand = new OpenCommand(pauseMenu);
+
+        PlayerHealth.PlayerDied += OnDisable;
+        SpawnManager.LastWave += OnDisable;
     }
     
     public void ShowPauseMenu()

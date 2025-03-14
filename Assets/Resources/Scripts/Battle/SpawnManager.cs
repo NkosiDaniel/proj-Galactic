@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
 
     private void HandleWaveDestroyed(WaveController wave) 
     {
-        if(waveIndex >= waves.Length) LastWave?.Invoke();
+        if(waveIndex == (waves.Length - 1)) LastWave?.Invoke();
 
         wave.onWaveDestroyed -= HandleWaveDestroyed; //Cleaning up the listener
         waveIndex++;

@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8856c35c7ed98485c90e4d59d8105652, type: 3}
-  m_Name: PragmaAddon
+  m_Name: ManiaAddon
   m_EditorClassIdentifier: 
-  damage: 2
-  explosionPrefab: {fileID: 984106296740774603, guid: 9c1313e397a39416da1a7ea38a99f26d,
-    type: 3}
-  shootSound: LaserShoot
+  damage: 0
+  explosionPrefab: {fileID: 0}
+  shootSound: 
   explodeSound: 
   playerAddon: 0

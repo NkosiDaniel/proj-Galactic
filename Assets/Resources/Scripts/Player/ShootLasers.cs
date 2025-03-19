@@ -13,38 +13,39 @@ public class ShootLasers : MonoBehaviour
     [SerializeField] GameObject laserPrefab;
 
     private float nextFire;
+    //[SerializeField] Weapon weapon;
     private Command shootCommand;
     private PlayerControls controls;
 
-    void Awake() 
+    void Awake()
     {
         controls = new PlayerControls();
         controls.Gameplay.Shoot.performed += ctx => shootCommand.Execute();
     }
 
-    void OnEnable() 
+    void OnEnable()
     {
         controls.Gameplay.Enable();
     }
 
-    void OnDisable() 
+    void OnDisable()
     {
         controls.Gameplay.Disable();
     }
 
-    void Start() 
+    void Start()
     {
-        shootCommand = new ShootCommand(fireSpeed, fireRate, laserPrefab, shooters, nextFire);
+        shootCommand = new ShootCommand(fireSpeed, fireRate, laserPrefab, shooters);
     }
 
-    void Update() 
+    void Update()
     {
         OnShoot();
     }
 
-    public void OnShoot() 
+    public void OnShoot()
     {
-        if(Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
             shootCommand.Execute();
         }

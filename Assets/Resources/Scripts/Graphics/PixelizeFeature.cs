@@ -1,6 +1,6 @@
 
 
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -28,5 +28,5 @@ public class PixelizeFeature : ScriptableRendererFeature
 #endif
         renderer.EnqueuePass(customPass);
     }
-}
+}*/
 

@@ -1,5 +1,4 @@
-
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -7,12 +6,7 @@ public class PixelizePass : ScriptableRenderPass
 {
     private PixelizeFeature.CustomPassSettings settings;
 
-    private RenderTargetIdentifier colorBuffer, pixelBuffer;
-    private int pixelBufferID = Shader.PropertyToID("_PixelBuffer");
-
-    //private RenderTargetIdentifier pointBuffer;
-    //private int pointBufferID = Shader.PropertyToID("_PointBuffer");
-
+    private RTHandle colorBuffer, pixelBuffer;
     private Material material;
     private int pixelScreenHeight, pixelScreenWidth;
 
@@ -20,18 +14,12 @@ public class PixelizePass : ScriptableRenderPass
     {
         this.settings = settings;
         this.renderPassEvent = settings.renderPassEvent;
-        if (material == null) material = CoreUtils.CreateEngineMaterial("Hidden/Pixelize");
+        material = CoreUtils.CreateEngineMaterial("Hidden/Pixelize");
     }
 
-    [System.Obsolete]
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
     {
-        colorBuffer = renderingData.cameraData.renderer.cameraColorTarget;
-        RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
-
-        //cmd.GetTemporaryRT(pointBufferID, descriptor.width, descriptor.height, 0, FilterMode.Point);
-        //pointBuffer = new RenderTargetIdentifier(pointBufferID);
-
+        colorBuffer = renderingData.cameraData.renderer.cameraColorTargetHandle;
         pixelScreenHeight = settings.screenHeight;
         pixelScreenWidth = (int)(pixelScreenHeight * renderingData.cameraData.camera.aspect + 0.5f);
 
@@ -39,11 +27,12 @@ public class PixelizePass : ScriptableRenderPass
         material.SetVector("_BlockSize", new Vector2(1.0f / pixelScreenWidth, 1.0f / pixelScreenHeight));
         material.SetVector("_HalfBlockSize", new Vector2(0.5f / pixelScreenWidth, 0.5f / pixelScreenHeight));
 
+        RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
         descriptor.height = pixelScreenHeight;
         descriptor.width = pixelScreenWidth;
 
-        cmd.GetTemporaryRT(pixelBufferID, descriptor, FilterMode.Point);
-        pixelBuffer = new RenderTargetIdentifier(pixelBufferID);
+        // Allocate pixelBuffer with RTHandles
+        pixelBuffer = RTHandles.Alloc(descriptor.width, descriptor.height, filterMode: FilterMode.Point, dimension: TextureDimension.Tex2D, name: "_PixelBuffer");
     }
 
     [System.Obsolete]
@@ -52,11 +41,6 @@ public class PixelizePass : ScriptableRenderPass
         CommandBuffer cmd = CommandBufferPool.Get();
         using (new ProfilingScope(cmd, new ProfilingSampler("Pixelize Pass")))
         {
-            // No-shader variant
-            //Blit(cmd, colorBuffer, pointBuffer);
-            //Blit(cmd, pointBuffer, pixelBuffer);
-            //Blit(cmd, pixelBuffer, colorBuffer);
-
             Blit(cmd, colorBuffer, pixelBuffer, material);
             Blit(cmd, pixelBuffer, colorBuffer);
         }
@@ -68,8 +52,6 @@ public class PixelizePass : ScriptableRenderPass
     public override void OnCameraCleanup(CommandBuffer cmd)
     {
         if (cmd == null) throw new System.ArgumentNullException("cmd");
-        cmd.ReleaseTemporaryRT(pixelBufferID);
-        //cmd.ReleaseTemporaryRT(pointBufferID);
+        pixelBuffer.Release();  // Dispose of the RTHandle
     }
-
-}
+}*/

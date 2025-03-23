@@ -42,7 +42,7 @@ namespace COMMAND
                 {
                     nextFire = Time.time + fireRate * UnityEngine.Random.Range(0.8f, 1.1f);
                     GameObject laser = Instantiate(laserPrefab, s.transform.position, s.transform.rotation);
-                    laser.GetComponent<Rigidbody>().velocity = s.transform.TransformDirection(new Vector3(0, 0, fireSpeed));
+                    laser.GetComponent<Rigidbody>().linearVelocity = s.transform.TransformDirection(new Vector3(0, 0, fireSpeed));
                     Destroy(laser, 2);
                 }
             }
